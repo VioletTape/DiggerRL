@@ -1,4 +1,5 @@
 ﻿using DiggerCore;
+using DiggerCore.ElementalStructures;
 using FluentAssertions;
 using NUnit.Framework;
 

@@ -1,6 +1,7 @@
 namespace DiggerCore {
     public enum TileType {
         Dirt,
-        Air
+        Surface,
+        Empty
     }
 }

@@ -42,12 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Digger.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="ElementalStructures\Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Range.cs" />
+    <Compile Include="ElementalStructures\Range.cs" />
     <Compile Include="Rule.cs" />
-    <Compile Include="Size.cs" />
+    <Compile Include="ElementalStructures\Size.cs" />
     <Compile Include="Tile.cs" />
     <Compile Include="TileArray.cs" />
     <Compile Include="TileType.cs" />

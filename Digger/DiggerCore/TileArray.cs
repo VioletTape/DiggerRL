@@ -1,4 +1,6 @@
-﻿namespace DiggerCore {
+﻿using DiggerCore.ElementalStructures;
+
+namespace DiggerCore {
     public class TileArray {
         private readonly Size size;
         private readonly Tile[,] array;

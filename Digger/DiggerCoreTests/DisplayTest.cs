@@ -23,7 +23,7 @@ namespace DiggerCoreTests {
         }
 
         [Test]
-        public void testname() {
+        public void MovementTest() {
             var game = new Game();
             game.Player.Move(Player.MoveCommand.Down);
 

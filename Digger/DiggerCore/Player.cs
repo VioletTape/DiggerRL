@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DiggerCore.ElementalStructures;
 
 namespace DiggerCore {
     public class Player {

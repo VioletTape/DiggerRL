@@ -1,4 +1,4 @@
-﻿namespace DiggerCore {
+﻿namespace DiggerCore.ElementalStructures {
     public struct Range {
         public readonly int Start;
         public readonly int End;

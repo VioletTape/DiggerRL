@@ -1,4 +1,6 @@
-﻿namespace DiggerCore {
+﻿using DiggerCore.ElementalStructures;
+
+namespace DiggerCore {
     public class Map {
         public TileArray tileMap;
         public Point DiggerPosition;
@@ -9,10 +11,10 @@
 
         public void GenerateMountain() {
             for (var i = 0; i < tileMap.Width - 4; i++) {
-                tileMap[0, i] = new Tile(TileType.Air);
+                tileMap[0, i] = new Tile(TileType.Surface);
             }
             for (var i = 0; i < tileMap.Width - 8; i++) {
-                tileMap[1, i] = new Tile(TileType.Air);
+                tileMap[1, i] = new Tile(TileType.Surface);
             }
         }
 
@@ -26,26 +28,13 @@
                 return "&";
             }
 
-            return tileMap[point].Type == TileType.Air ? "_" : "#";
-        }
-    }
+            if (tileMap[point].Type == TileType.Surface)
+                return "_";
 
-    public class Game {
-        public Map map;
-        public Player Player;
+            if (tileMap[point].Type == TileType.Empty)
+                return " ";
 
-        public Game() {
-            map = new Map(new Rule());
-            map.GenerateMountain();
-            map.GenerateDigger();
-
-            Player = new Player();
-
-            Player.OnMove += OnMove;
-        }
-
-        private void OnMove(Point move) {
-            map.DiggerPosition += move;
+            return "#";
         }
     }
 }

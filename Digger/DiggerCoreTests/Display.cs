@@ -1,5 +1,6 @@
 ﻿using System;
 using DiggerCore;
+using DiggerCore.ElementalStructures;
 
 namespace DiggerCoreTests {
     public class Display {
