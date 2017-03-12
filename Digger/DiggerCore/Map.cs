@@ -21,7 +21,7 @@ namespace DiggerCore {
         }
 
         public void GenerateDigger() {
-            DiggerPosition = new Point(1, 3);
+            DiggerPosition = new Point(1, 0);
         }
 
         public string TestDraw(Point point) {

@@ -6,8 +6,7 @@ namespace DiggerCore {
         public Player Player;
         public Digger digger;
 
-        public Game() {
-            var rule = new Rule();
+        public Game(Rule rule) {
             map = new Map(rule);
             map.GenerateMountain();
             map.GenerateDigger();
