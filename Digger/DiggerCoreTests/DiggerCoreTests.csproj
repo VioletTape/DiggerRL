@@ -53,9 +53,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DiggerTests\DiggerDefaultTests.cs" />
-    <Compile Include="Display.cs" />
+    <Compile Include="TestDisplay.cs" />
     <Compile Include="DisplayTest.cs" />
     <Compile Include="StructsTests\Class1.cs" />
+    <Compile Include="TestData\TestRules.cs" />
     <Compile Include="TileArrayTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TileTests.cs" />

@@ -1,25 +1,38 @@
 ﻿using DiggerCore;
+using DiggerCoreTests.TestData;
 using FluentAssertions;
 using NUnit.Framework;
 
 namespace DiggerCoreTests {
     [TestFixture]
+    [TestOf(typeof(Map))]
     public class MapTest {
+        private TestDisplay display;
+        private TestRules rules;
+
+        [SetUp]
+        public void Init() {
+            display = new TestDisplay();
+
+            rules = new TestRules();
+            rules.SetSmall();
+        }
+
         [Test]
         public void ShouldGenerateMountain() {
-            var map = new Map(new Rule());  
+            var map = new Map(rules);  
             map.GenerateMountain();
 
-            new Display(map);
+            display.Render(map);
         }
 
         [Test]
         public void ShouldGenerateDigger() {
-            var map = new Map(new Rule());
+            var map = new Map(rules);
             map.GenerateMountain();
             map.GenerateDigger();
 
-            new Display(map);
+            display.Render(map);
         }
 
         [Test]
@@ -27,7 +40,7 @@ namespace DiggerCoreTests {
             var game = new Game();
             game.Player.Move(Player.MoveCommand.Down);
 
-            new Display(game.map);
+            display.Render(game.map);
         }
     }
 

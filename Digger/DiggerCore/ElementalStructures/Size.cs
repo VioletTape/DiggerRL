@@ -7,5 +7,9 @@
             Depth = depth;
             Width = width;
         }
+
+        public static implicit operator int(Size size) {
+            return size.Depth * size.Width;
+        }
     }
 }

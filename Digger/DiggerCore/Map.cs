@@ -2,36 +2,37 @@
 
 namespace DiggerCore {
     public class Map {
-        public TileArray tileMap;
+        public readonly Rule Rule;
+        public readonly TileArray TileMap;
         public Point DiggerPosition;
 
         public Map(Rule rule) {
-            tileMap = new TileArray(rule.MapSize);
+            this.Rule = rule;
+            TileMap = new TileArray(rule.MapSize);
         }
 
         public void GenerateMountain() {
-            for (var i = 0; i < tileMap.Width - 4; i++) {
-                tileMap[0, i] = new Tile(TileType.Surface);
+            for (var i = 0; i < TileMap.Width - 4; i++) {
+                TileMap[0, i] = new Tile(TileType.Surface);
             }
-            for (var i = 0; i < tileMap.Width - 8; i++) {
-                tileMap[1, i] = new Tile(TileType.Surface);
+            for (var i = 0; i < TileMap.Width - 8; i++) {
+                TileMap[1, i] = new Tile(TileType.Surface);
             }
         }
 
         public void GenerateDigger() {
-            var digger = new Digger();
             DiggerPosition = new Point(1, 3);
         }
 
-        public string Draw(Point point) {
+        public string TestDraw(Point point) {
             if (point == DiggerPosition) {
                 return "&";
             }
 
-            if (tileMap[point].Type == TileType.Surface)
+            if (TileMap[point].Type == TileType.Surface)
                 return "_";
 
-            if (tileMap[point].Type == TileType.Empty)
+            if (TileMap[point].Type == TileType.Empty)
                 return " ";
 
             return "#";

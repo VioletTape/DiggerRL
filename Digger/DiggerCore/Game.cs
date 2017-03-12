@@ -4,9 +4,11 @@ namespace DiggerCore {
     public class Game {
         public Map map;
         public Player Player;
+        public Digger digger;
 
         public Game() {
-            map = new Map(new Rule());
+            var rule = new Rule();
+            map = new Map(rule);
             map.GenerateMountain();
             map.GenerateDigger();
 
