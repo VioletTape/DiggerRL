@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\Direction.cs" />
+    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\MoveDirectionCommand.cs" />
     <Compile Include="Digger.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Map.cs" />
