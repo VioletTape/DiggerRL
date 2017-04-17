@@ -20,5 +20,7 @@ namespace DiggerCoreTests {
             }
             return stringBuilder.ToString();
         }
+
+
     }
 }

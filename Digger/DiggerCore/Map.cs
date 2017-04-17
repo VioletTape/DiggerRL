@@ -1,4 +1,5 @@
-﻿using DiggerCore.ElementalStructures;
+﻿using System;
+using DiggerCore.ElementalStructures;
 
 namespace DiggerCore {
     public class Map {
@@ -7,27 +8,29 @@ namespace DiggerCore {
         public Point DiggerPosition;
 
         public Map(Rule rule) {
-            this.Rule = rule;
+            Rule = rule;
             TileMap = new TileArray(rule.MapSize);
         }
 
         public void GenerateMountain() {
-            for (var i = 0; i < TileMap.Width - 4; i++) {
-                TileMap[0, i] = new Tile(TileType.Surface);
-            }
-            for (var i = 0; i < TileMap.Width - 8; i++) {
-                TileMap[1, i] = new Tile(TileType.Surface);
-            }
+            for (var i = 0; i < TileMap.Width - 4; i++)
+                TileMap[0, i] = new Tile(TileType.Surface) {
+                                                               IsOnMap = true
+                                                           };
+            for (var i = 0; i < TileMap.Width - 8; i++)
+                TileMap[1, i] = new Tile(TileType.Surface) {
+                                                               IsOnMap = true
+                                                           };
         }
 
         public void GenerateDigger() {
             DiggerPosition = new Point(1, 0);
         }
 
+        [Obsolete]
         public string TestDraw(Point point) {
-            if (point == DiggerPosition) {
+            if (point == DiggerPosition)
                 return "&";
-            }
 
             if (TileMap[point].Type == TileType.Surface)
                 return "_";

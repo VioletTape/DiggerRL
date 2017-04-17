@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26206.0
+VisualStudioVersion = 15.0.26403.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiggerCore", "DiggerCore\DiggerCore.csproj", "{2014927C-D9D2-4005-BDC4-8DB48F726F87}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiggerCoreTests", "DiggerCoreTests\DiggerCoreTests.csproj", "{C6DEB360-A418-447E-84E5-90CD5BC62A1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestUI", "TestUI\TestUI.csproj", "{7B46887D-06B9-49E9-A87C-FBD35AC32E97}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{C6DEB360-A418-447E-84E5-90CD5BC62A1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6DEB360-A418-447E-84E5-90CD5BC62A1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6DEB360-A418-447E-84E5-90CD5BC62A1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B46887D-06B9-49E9-A87C-FBD35AC32E97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B46887D-06B9-49E9-A87C-FBD35AC32E97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B46887D-06B9-49E9-A87C-FBD35AC32E97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B46887D-06B9-49E9-A87C-FBD35AC32E97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

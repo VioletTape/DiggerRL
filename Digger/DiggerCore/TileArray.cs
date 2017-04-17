@@ -22,11 +22,11 @@ namespace DiggerCore {
         public TileArray(Size size) {
             this.size = size;
             array = new Tile[size.Depth, size.Width];
-//            for (int i = 0; i < size.Depth; i++) {
-//                for (int j = 0; j < size.Width; j++) {
-//                    array[i, j] = new Tile();
-//                }
-//            }
+            for (int i = 0; i < size.Depth; i++) {
+                for (int j = 0; j < size.Width; j++) {
+                    array[i,j] = new Tile();
+                }
+            }
         }
 
         public TileArray RangeOf(Range range, TileType tileType) {
