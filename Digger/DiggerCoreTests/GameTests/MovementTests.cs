@@ -22,7 +22,7 @@ namespace DiggerCoreTests.GameTests {
             var game = new Game(rules);
             game.Player.Move(Player.MoveCommand.Right);
 
-            var render = display.Render(game.map);
+            var render = display.Render(game.Map);
 
             render.Should()
                   .Be("______####\r\n" +
@@ -45,7 +45,7 @@ namespace DiggerCoreTests.GameTests {
             game.Player.Move(Player.MoveCommand.Right);
             game.Player.Move(Player.MoveCommand.Right);
 
-            var render = display.Render(game.map);
+            var render = display.Render(game.Map);
 
             render.Should()
                   .Be("______####\r\n" +

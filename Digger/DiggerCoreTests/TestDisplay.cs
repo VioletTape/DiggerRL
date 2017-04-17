@@ -11,7 +11,7 @@ namespace DiggerCoreTests {
 
             for (int j = 0; j < map.TileMap.Depth; j++) {
                 for (int i = 0; i < map.TileMap.Width; i++) {
-                    var tile = map.TestDraw(new Point(j,i));
+                    var tile = TestDraw(map.TileMap[j,i]);
                     stringBuilder.Append(tile);
                     Console.Write(tile);
                 }
@@ -21,6 +21,15 @@ namespace DiggerCoreTests {
             return stringBuilder.ToString();
         }
 
+        public string TestDraw(Tile tile)
+        {
+            if (tile.Type == TileType.Surface)
+                return "_";
 
+            if (tile.Type == TileType.Empty)
+                return " ";
+
+            return "#";
+        }
     }
 }

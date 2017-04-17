@@ -5,7 +5,6 @@ namespace DiggerCore {
     public class Map {
         public readonly Rule Rule;
         public readonly TileArray TileMap;
-        public Point DiggerPosition;
 
         public Map(Rule rule) {
             Rule = rule;
@@ -21,24 +20,6 @@ namespace DiggerCore {
                 TileMap[1, i] = new Tile(TileType.Surface) {
                                                                IsOnMap = true
                                                            };
-        }
-
-        public void GenerateDigger() {
-            DiggerPosition = new Point(1, 0);
-        }
-
-        [Obsolete]
-        public string TestDraw(Point point) {
-            if (point == DiggerPosition)
-                return "&";
-
-            if (TileMap[point].Type == TileType.Surface)
-                return "_";
-
-            if (TileMap[point].Type == TileType.Empty)
-                return " ";
-
-            return "#";
         }
     }
 }

@@ -29,8 +29,40 @@ namespace DiggerCore {
             }
         }
 
-        public TileArray RangeOf(Range range, TileType tileType) {
-            return this;
+        private Size windowSize = new Size(0,0);
+        private Point windowOffset = new Point();
+        /// <summary>
+        /// Set logical rendering window according to future user-centric position
+        /// </summary>
+        /// <param name="offset">Describe offset from user in all directions</param>
+        public void SetWindow(Point offset) {
+            windowOffset = offset;
+            windowSize = new Size(offset.Depth+offset.Depth, offset.Width+offset.Width);
+        }
+
+        /// <summary>
+        /// Get reference to logical window according to hero in the center
+        /// </summary>
+        /// <param name="center">Hero point as center</param>
+        /// <returns></returns>
+        public TileArray GetWindow(Point center) {
+            var tileArray = new TileArray(windowSize);
+            for (int newD = 0, oldD = center.Depth-windowOffset.Depth; 
+                     newD < windowSize.Depth;
+                     newD++, oldD++) {
+                for (int newW = 0, oldW = center.Width - windowOffset.Width; 
+                         newW < windowSize.Width; 
+                         newW++, oldW++) {
+                    if (oldD < 0
+                        || oldW < 0) {
+                        tileArray[newD, newW] = new Tile(TileType.Blacked);
+                    }
+                    else {
+                        tileArray[newD, newW] = this[oldD, oldW];
+                    }
+                }
+            }
+            return tileArray;
         }
     }
 }

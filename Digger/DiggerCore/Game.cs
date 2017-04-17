@@ -2,14 +2,13 @@
 
 namespace DiggerCore {
     public class Game {
-        public Map map;
+        public Map Map;
         public Player Player;
-        public Digger digger;
+        public Digger Digger;
 
         public Game(Rule rule) {
-            map = new Map(rule);
-            map.GenerateMountain();
-            map.GenerateDigger();
+            Map = new Map(rule);
+            Map.GenerateMountain();
 
             Player = new Player();
 
@@ -17,7 +16,6 @@ namespace DiggerCore {
         }
 
         private void OnMove(Point move) {
-            map.DiggerPosition += move;
         }
     }
 }

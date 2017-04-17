@@ -25,28 +25,8 @@ namespace DiggerCoreTests.MapTests {
 
             var render = display.Render(map);
             render.Should()
-                  .Be("&_____####\r\n" +
-                      "__########\r\n" +
-                      "##########\r\n" +
-                      "##########\r\n" +
-                      "##########\r\n" +
-                      "##########\r\n" +
-                      "##########\r\n" +
-                      "##########\r\n" +
-                      "##########\r\n" +
-                      "##########\r\n");
-        }
-
-        [Test]
-        public void ShouldGenerateDigger() {
-            var map = new Map(rules);
-            map.GenerateMountain();
-            map.GenerateDigger();
-
-            var render = display.Render(map);
-            render.Should()
                   .Be("______####\r\n" +
-                      "&_########\r\n" +
+                      "__########\r\n" +
                       "##########\r\n" +
                       "##########\r\n" +
                       "##########\r\n" +

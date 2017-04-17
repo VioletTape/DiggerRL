@@ -1,7 +1,8 @@
 namespace DiggerCore {
     public enum TileType {
-        Dirt,
-        Surface,
-        Empty
+        Blacked, // for the out-of-map tile rendering
+        Dirt, // base tile 
+        Surface, // 
+        Empty // free to move undeground tile
     }
 }
