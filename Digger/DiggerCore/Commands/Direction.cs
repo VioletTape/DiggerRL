@@ -1,6 +1,4 @@
-﻿namespace DiggerCore.Commands
-{
-
+﻿namespace DiggerCore.Commands {
     public enum Direction {
         Left
         , Up

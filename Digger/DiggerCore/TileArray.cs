@@ -6,14 +6,14 @@ namespace DiggerCore {
         private readonly Tile[,] array;
 
         public Tile this[int depth, int width] {
-            get { return array[depth, width]; }
-            set { array[depth, width] = value; }
+            get => array[depth, width];
+            set => array[depth, width] = value;
         }
 
         public Tile this[Point point]
         {
-            get { return array[point.Depth, point.Width]; }
-            set { array[point.Depth, point.Width] = value; }
+            get => array[point.Depth, point.Width];
+            set => array[point.Depth, point.Width] = value;
         }
 
         public int Width => size.Width;

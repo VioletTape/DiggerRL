@@ -66,11 +66,11 @@ namespace TestUI {
                 case Key.Right:
                     colX++;
                     break;
+                default:
+                    return;
             }
-            labels[rowX, colX].Content = "@";
 
+            labels[rowX, colX].Content = "@";
         }
     }
 }
-
-

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using DiggerCore.Commands;
-using DiggerCore.ElementalStructures;
+﻿using DiggerCore.Commands;
 
 namespace DiggerCore {
     public class Digger {
@@ -11,12 +8,8 @@ namespace DiggerCore {
             Stamina = 100;
         }
 
-
-
         public void Move(MoveCommand move) {
-
+            Stamina -= move.ActiveTile.StaminaPrice;
         }
-
-       
     }
 }

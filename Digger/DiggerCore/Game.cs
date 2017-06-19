@@ -28,6 +28,7 @@ namespace DiggerCore {
         /// <param name="moveDirectionCommand">Command with proposed direction</param>
         private void PlayerOnMoveCommand(object sender, MoveDirectionCommand moveDirectionCommand) {
             var activeTile = Map.GetTileNextTo(moveDirectionCommand);
+
             Digger.Move(new MoveCommand(moveDirectionCommand.Direction, activeTile));
         }
     }

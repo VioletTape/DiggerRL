@@ -1,4 +1,3 @@
-﻿namespace DiggerCore.Commands
-{
+﻿namespace DiggerCore.Commands {
     public interface ICommand { }
 }

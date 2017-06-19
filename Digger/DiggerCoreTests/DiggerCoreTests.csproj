@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DiggerCoreTests</RootNamespace>
     <AssemblyName>DiggerCoreTests</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,6 +54,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DiggerTests\DiggerDefaultTests.cs" />
+    <Compile Include="DiggerTests\WhenDiggerMoves\StaminaTests.cs" />
+    <Compile Include="GameTests\MovementTests.cs" />
     <Compile Include="TestDisplay.cs" />
     <Compile Include="MapTests\MapTest.cs" />
     <Compile Include="TestData\TestRules.cs" />
@@ -70,8 +73,6 @@
       <Name>DiggerCore</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="GameTests\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

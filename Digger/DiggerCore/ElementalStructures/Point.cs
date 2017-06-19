@@ -1,11 +1,9 @@
 ﻿namespace DiggerCore.ElementalStructures {
-    public struct Point
-    {
+    public struct Point {
         public readonly int Depth;
         public readonly int Width;
 
-        public Point(int depth, int width)
-        {
+        public Point(int depth, int width) {
             Depth = depth;
             Width = width;
         }
@@ -15,7 +13,9 @@
         }
 
         public override bool Equals(object obj) {
-            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(null, obj)) {
+                return false;
+            }
             return obj is Point && Equals((Point) obj);
         }
 

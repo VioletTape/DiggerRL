@@ -1,11 +1,9 @@
-﻿namespace DiggerCore.Commands
-{
-
+﻿namespace DiggerCore.Commands {
     public class MoveDirectionCommand : ICommand {
         public Direction Direction { get; }
 
         /// <summary>
-        /// Describe in fact intention of direction
+        ///     Describe in fact intention of direction
         /// </summary>
         /// <param name="direction"></param>
         public MoveDirectionCommand(Direction direction) {
@@ -19,7 +17,7 @@
         public Tile ActiveTile { get; }
 
         /// <summary>
-        /// Direction and target tile of that direction
+        ///     Direction and target tile of that direction
         /// </summary>
         /// <param name="direction"></param>
         /// <param name="activeTile"></param>
