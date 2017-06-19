@@ -1,4 +1,5 @@
 ﻿using DiggerCore.ElementalStructures;
+using DiggerCore.Tiles;
 
 namespace DiggerCore {
     public class TileArray {
@@ -24,7 +25,7 @@ namespace DiggerCore {
             array = new Tile[size.Depth, size.Width];
             for (int i = 0; i < size.Depth; i++) {
                 for (int j = 0; j < size.Width; j++) {
-                    array[i,j] = new Tile();
+                    array[i,j] = new DirtTile();
                 }
             }
         }
@@ -55,7 +56,7 @@ namespace DiggerCore {
                          newW++, oldW++) {
                     if (oldD < 0
                         || oldW < 0) {
-                        tileArray[newD, newW] = new Tile(TileType.Blacked);
+                        tileArray[newD, newW] = new BlackedTile();
                     }
                     else {
                         tileArray[newD, newW] = this[oldD, oldW];

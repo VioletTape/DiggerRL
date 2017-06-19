@@ -1,5 +1,6 @@
 ﻿using DiggerCore;
 using DiggerCore.Commands;
+using DiggerCore.Tiles;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -11,7 +12,7 @@ namespace DiggerCoreTests.DiggerTests.WhenDiggerMoves {
             var digger = new Digger();
             var initialStamina = digger.Stamina;
 
-            digger.Move(new MoveCommand(Direction.Right, new Tile(TileType.Empty)));
+            digger.Move(new MoveCommand(Direction.Right, new EmptyTile()));
 
             digger.Stamina
                   .Should()

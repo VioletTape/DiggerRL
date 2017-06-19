@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using DiggerCore.Commands;
 using DiggerCore.ElementalStructures;
+using DiggerCore.Tiles;
 
 namespace DiggerCore {
     public class Map {
@@ -28,11 +29,11 @@ namespace DiggerCore {
 
         public void GenerateMountain() {
             for (var i = 0; i < TileMap.Width - 4; i++)
-                TileMap[0, i] = new Tile(TileType.Surface) {
+                TileMap[0, i] = new SurfaceTile() {
                                                                IsOnMap = true
                                                            };
             for (var i = 0; i < TileMap.Width - 8; i++)
-                TileMap[1, i] = new Tile(TileType.Surface) {
+                TileMap[1, i] = new SurfaceTile() {
                                                                IsOnMap = true
                                                            };
         }

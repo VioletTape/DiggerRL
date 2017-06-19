@@ -2,6 +2,7 @@
 using System.Text;
 using DiggerCore;
 using DiggerCore.ElementalStructures;
+using DiggerCore.Tiles;
 
 namespace DiggerCoreTests {
     public class TestDisplay {

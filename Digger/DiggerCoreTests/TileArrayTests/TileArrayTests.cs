@@ -3,7 +3,7 @@ using DiggerCore.ElementalStructures;
 using FluentAssertions;
 using NUnit.Framework;
 
-namespace DiggerCoreTests {
+namespace DiggerCoreTests.TileArrayTests {
     [TestFixture]
     [TestOf(typeof(TileArray))]
     public class TileArrayTests {

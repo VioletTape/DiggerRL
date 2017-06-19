@@ -1,4 +1,6 @@
-﻿namespace DiggerCore.Commands {
+﻿using DiggerCore.Tiles;
+
+namespace DiggerCore.Commands {
     public class MoveDirectionCommand : ICommand {
         public Direction Direction { get; }
 

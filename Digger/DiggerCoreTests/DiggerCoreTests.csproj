@@ -59,6 +59,7 @@
     <Compile Include="TestDisplay.cs" />
     <Compile Include="MapTests\MapTest.cs" />
     <Compile Include="TestData\TestRules.cs" />
+    <Compile Include="TileArrayTests\TestTile.cs" />
     <Compile Include="TileArrayTests\TileArrayTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StructsTests\TileTests.cs" />

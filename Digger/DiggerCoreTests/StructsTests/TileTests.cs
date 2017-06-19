@@ -1,4 +1,6 @@
 using DiggerCore;
+using DiggerCore.Tiles;
+using DiggerCoreTests.TileArrayTests;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -7,7 +9,7 @@ namespace DiggerCoreTests.StructsTests {
     public class TileTests {
         [Test]
         public void ShouldBeClosedByDefault() {
-            var tile = new Tile();
+            var tile = new TestTile(TileType.Dirt);
 
             tile.IsOnMap
                 .Should()
@@ -15,17 +17,8 @@ namespace DiggerCoreTests.StructsTests {
         }
 
         [Test]
-        public void ShouldBeDirtByDefault() {
-            var tile = new Tile();
-
-            tile.Type
-                .Should()
-                .Be(TileType.Dirt);
-        }
-
-        [Test]
         public void ShouldBeAbleToCreateNonDefaultType() {
-            var tile = new Tile(TileType.Surface);
+            var tile = new SurfaceTile();
 
             tile.Type.Should()
                 .Be(TileType.Surface);
