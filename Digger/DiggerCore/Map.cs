@@ -30,11 +30,11 @@ namespace DiggerCore {
         public void GenerateMountain() {
             for (var i = 0; i < TileMap.Width - 4; i++)
                 TileMap[0, i] = new SurfaceTile() {
-                                                               IsOnMap = true
+                                                               IsDiscovered = true
                                                            };
             for (var i = 0; i < TileMap.Width - 8; i++)
                 TileMap[1, i] = new SurfaceTile() {
-                                                               IsOnMap = true
+                                                               IsDiscovered = true
                                                            };
         }
 

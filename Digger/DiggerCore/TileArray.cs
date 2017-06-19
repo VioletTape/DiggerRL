@@ -56,7 +56,7 @@ namespace DiggerCore {
                          newW++, oldW++) {
                     if (oldD < 0
                         || oldW < 0) {
-                        tileArray[newD, newW] = new BlackedTile();
+                        tileArray[newD, newW] = new EmptyTile{IsDiscovered = false};
                     }
                     else {
                         tileArray[newD, newW] = this[oldD, oldW];

@@ -54,7 +54,6 @@
     <Compile Include="ElementalStructures\Range.cs" />
     <Compile Include="Rule.cs" />
     <Compile Include="ElementalStructures\Size.cs" />
-    <Compile Include="Tiles\BlackedTile.cs" />
     <Compile Include="Tiles\DirtTile.cs" />
     <Compile Include="Tiles\EmptyTile.cs" />
     <Compile Include="Tiles\SurfaceTile.cs" />

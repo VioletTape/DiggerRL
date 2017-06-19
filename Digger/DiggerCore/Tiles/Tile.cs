@@ -1,7 +1,9 @@
 ﻿namespace DiggerCore.Tiles {
     public abstract class Tile {
         public TileType Type;
-        public bool IsOnMap;
+
+        // Is tile discovered by player
+        public bool IsDiscovered;
 
         protected Tile(TileType type) {
             Type = type;

@@ -11,7 +11,7 @@ namespace DiggerCoreTests.StructsTests {
         public void ShouldBeClosedByDefault() {
             var tile = new TestTile(TileType.Dirt);
 
-            tile.IsOnMap
+            tile.IsDiscovered
                 .Should()
                 .BeFalse();
         }
