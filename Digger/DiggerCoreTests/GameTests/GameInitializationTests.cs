@@ -1,11 +1,11 @@
 ﻿using DiggerCore;
 using DiggerCoreTests.TestData;
+using FluentAssertions;
 using NUnit.Framework;
-using NUnit.Framework.Internal;
 
 namespace DiggerCoreTests.GameTests {
 
-    [TestFixture()]
+    [TestFixture(TestOf = typeof(Game))]
     public class GameInitializationTests {
         private Game game;
 
@@ -15,8 +15,17 @@ namespace DiggerCoreTests.GameTests {
         }
 
         [Test]
-        public void testname() {
-            
+        public void PlayerInitialized() {
+            game.Player.Should()
+                .NotBeNull();
         }
+
+        [Test]
+        public void ShouldSetDiggerPosition() {
+//            game.Digger
+
+            Assert.Fail();
+        }
+
     }
 }

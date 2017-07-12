@@ -15,6 +15,17 @@ namespace DiggerCore {
             Map = new Map(rule);
             Map.GenerateMountain();
 
+            CreatePlayer();
+        }
+
+        public Game(Map map) {
+            rule = map.Rule;
+            Map = map;
+
+            CreatePlayer();
+        }
+
+        private void CreatePlayer() {
             Player = new Player();
             Digger = new Digger();
 

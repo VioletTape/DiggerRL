@@ -1,4 +1,7 @@
-﻿namespace DiggerCore.ElementalStructures {
+﻿using System.Diagnostics;
+
+namespace DiggerCore.ElementalStructures {
+    [DebuggerDisplay("Depth {Depth}, Width {Width}")]
     public struct Point {
         public readonly int Depth;
         public readonly int Width;

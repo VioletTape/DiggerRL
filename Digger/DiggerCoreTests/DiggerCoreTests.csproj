@@ -55,7 +55,8 @@
   <ItemGroup>
     <Compile Include="DiggerTests\DiggerDefaultTests.cs" />
     <Compile Include="DiggerTests\WhenDiggerMoves\StaminaTests.cs" />
-    <Compile Include="GameTests\MovementTests.cs" />
+    <Compile Include="GameTests\GameInitializationTests.cs" />
+    <Compile Include="GameTests\PlayerCommandTests.cs" />
     <Compile Include="TestDisplay.cs" />
     <Compile Include="MapTests\MapTest.cs" />
     <Compile Include="TestData\TestRules.cs" />

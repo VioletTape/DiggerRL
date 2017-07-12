@@ -3,6 +3,6 @@ namespace DiggerCore.Tiles {
     {
         public SurfaceTile() : base(TileType.Surface) { }
 
-        public override int StaminaPrice => 0;
+        public override int StaminaPrice => 1;
     }
 }
