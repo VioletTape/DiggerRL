@@ -61,11 +61,14 @@
     <Compile Include="TestDisplay.cs" />
     <Compile Include="MapTests\MapTest.cs" />
     <Compile Include="TestData\TestRule10Cell.cs" />
+    <Compile Include="TestExtensions\MapExtension.cs" />
+    <Compile Include="TestExtensions\MapVisualiserExtension.cs" />
     <Compile Include="TileArrayTests\TestTile.cs" />
     <Compile Include="TileArrayTests\TileArrayTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StructsTests\TileTests.cs" />
     <Compile Include="TileArrayTests\WhenGetWindow.cs" />
+    <Compile Include="Utils\BlockBuilderTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
