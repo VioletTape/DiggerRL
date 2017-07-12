@@ -23,5 +23,18 @@ namespace DiggerCoreTests.StructsTests {
             tile.Type.Should()
                 .Be(TileType.Surface);
         }
+
+        [Test]
+        public void DestructableSettings() {
+            var tile = new SurfaceTile();
+            tile.IsDestructale
+                .Should()
+                .BeTrue();
+
+            var block = new BlockTile();
+            block.IsDestructale
+                 .Should()
+                 .BeFalse();
+        }
     }
 }

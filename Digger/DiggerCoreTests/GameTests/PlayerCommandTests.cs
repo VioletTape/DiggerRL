@@ -13,7 +13,7 @@ namespace DiggerCoreTests.GameTests {
         [SetUp]
         public void Init()
         {
-            game = new Game(new TestRules());
+            game = new Game(new TestRule10Cell());
         }
 
         [Test]
