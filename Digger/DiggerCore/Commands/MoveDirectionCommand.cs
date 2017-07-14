@@ -13,6 +13,13 @@ namespace DiggerCore.Commands {
         }
     }
 
+    public static class DirectionCommand{
+        public static MoveDirectionCommand Right => new MoveDirectionCommand(Direction.Right);
+        public static MoveDirectionCommand Left => new MoveDirectionCommand(Direction.Left);
+        public static MoveDirectionCommand Up => new MoveDirectionCommand(Direction.Up);
+        public static MoveDirectionCommand Down => new MoveDirectionCommand(Direction.Down);
+    }
+
 
     public class MoveCommand : ICommand {
         public Direction Direction { get; }

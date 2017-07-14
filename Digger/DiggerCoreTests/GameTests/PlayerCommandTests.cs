@@ -1,4 +1,5 @@
-﻿using DiggerCore;
+﻿using System.Collections.Generic;
+using DiggerCore;
 using DiggerCore.Commands;
 using DiggerCoreTests.TestData;
 using FluentAssertions;
@@ -11,14 +12,22 @@ namespace DiggerCoreTests.GameTests {
 
         [SetUp]
         public void Init() {
-            game = new Game(new TestRule10Cell());
+            game = new Game(Rules.TenCells);
+        }
+
+        public static IEnumerable<MoveDirectionCommand> Directions() {
+            yield return DirectionCommand.Down;
+            yield return DirectionCommand.Up;
+            yield return DirectionCommand.Left;
+            yield return DirectionCommand.Right;
         }
 
         [Test]
-        public void PlayerMove() {
+        [TestCaseSource(nameof(Directions))]
+        public void PlayerMove(MoveDirectionCommand command) {
             var initialStamina = game.Digger.Stamina;
 
-            game.Player.Send(new MoveDirectionCommand(Direction.Right));
+            game.Player.Send(command);
 
             game.Digger.Stamina
                 .Should()

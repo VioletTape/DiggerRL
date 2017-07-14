@@ -3,10 +3,10 @@ using DiggerCore.ElementalStructures;
 
 namespace DiggerCoreTests.TestData {
     public class TestRule10Cell : Rule {
-        public static Size Small = new Size(10, 10);
 
-        public void SetSmall() {
-            MapSize = Small;
+        public TestRule10Cell() {
+            MapSize = new Size(10, 10);
+            DiggerPosition = new Point(2, 2);
         }
     }
 

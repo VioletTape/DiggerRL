@@ -8,14 +8,13 @@ namespace DiggerCoreTests.MapTests {
     [TestOf(typeof(Map))]
     public class MapTest {
         private TestDisplay display;
-        private TestRule10Cell rules;
+        private Rule rules;
 
         [SetUp]
         public void Init() {
             display = new TestDisplay();
 
-            rules = new TestRule10Cell();
-            rules.SetSmall();
+            rules = Rules.TenCells;
         }
 
         [Test]
