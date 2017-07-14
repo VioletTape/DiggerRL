@@ -23,7 +23,7 @@ namespace DiggerCoreTests.TileArrayTests {
 
         [Test]
         public void CreateTest() {
-            var tileArray = new TileArray(new Size(2000, 50));
+            var tileArray = new TileArray(new Size(50, 2000));
 
             tileArray[1, 1]
                     .Should()

@@ -5,7 +5,7 @@ using FluentAssertions;
 using NUnit.Framework;
 
 namespace DiggerCoreTests.DiggerTests.WhenDiggerMoves {
-    [TestFixture]
+    [TestFixture(TestOf = typeof(Digger))]
     public class StaminaTests {
         [Test]
         public void StaminaShouldDecrese() {

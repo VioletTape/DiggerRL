@@ -1,15 +1,14 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using DiggerCore.Commands;
 using DiggerCore.ElementalStructures;
 using DiggerCore.Tiles;
 
 namespace DiggerCore {
     public class Map {
-        private static readonly Point Left = new Point(0, -1);
-        private static readonly Point Right = new Point(0, 1);
-        private static readonly Point Up = new Point(-1, 0);
-        private static readonly Point Down = new Point(1, 0);
+        private static readonly Point Left = new Point(-1, 0);
+        private static readonly Point Right = new Point(1, 0);
+        private static readonly Point Up = new Point(0, -1);
+        private static readonly Point Down = new Point(0, 1);
 
         private static readonly List<Point> Points = new List<Point> {
                                                                          Left
@@ -30,13 +29,13 @@ namespace DiggerCore {
 
         public void GenerateMountain() {
             for (var i = 0; i < TileMap.Width - 4; i++)
-                TileMap[0, i] = new SurfaceTile() {
-                                                               IsDiscovered = true
-                                                           };
+                TileMap[0, i] = new SurfaceTile {
+                                                    IsDiscovered = true
+                                                };
             for (var i = 0; i < TileMap.Width - 8; i++)
-                TileMap[1, i] = new SurfaceTile() {
-                                                               IsDiscovered = true
-                                                           };
+                TileMap[1, i] = new SurfaceTile {
+                                                    IsDiscovered = true
+                                                };
         }
 
         public Tile GetTileNextTo(MoveDirectionCommand moveDirectionCommand) {

@@ -11,8 +11,8 @@ namespace DiggerCoreTests.TileArrayTests {
         public void SizeShouldBeAccordingToSetWindow()
         {
             // arrange
-            var tileArray = new TileArray(new Size(2000, 50));
-            var offset = new Point(5, 10);
+            var tileArray = new TileArray(new Size(50, 2000));
+            var offset = new Point(10, 5);
             tileArray.SetWindow(offset);
 
             // act
@@ -27,12 +27,12 @@ namespace DiggerCoreTests.TileArrayTests {
         public void ShouldRepresentDataFromOriginalMap()
         {   
             // arrange
-            var tileArray = new TileArray(new Size(2000, 50));
-            var offset = new Point(5, 10);
+            var tileArray = new TileArray(new Size(50, 2000));
+            var offset = new Point(10, 5);
             tileArray.SetWindow(offset);
 
             // pre-assert
-            tileArray[20 - 5, 20 - 10]
+            tileArray[20 - 10, 20 - 5]
                     .Type
                     .Should()
                     .Be(TileType.Dirt);
@@ -43,7 +43,7 @@ namespace DiggerCoreTests.TileArrayTests {
 
 
             // assert
-            tileArray[20 - 5, 20 - 10]
+            tileArray[20 - 10, 20 - 5]
                     .Type
                     .Should()
                     .Be(TileType.Empty);
@@ -52,7 +52,7 @@ namespace DiggerCoreTests.TileArrayTests {
         [Test]
         public void ShouldProcessEndOfMap() {
             var tileArray = new TileArray(new Size(50, 50));
-            tileArray.SetWindow(new Point(5, 10));
+            tileArray.SetWindow(new Point(10, 5));
 
             var window = tileArray.GetWindow(new Point(4, 4));
             window[0, 0].Type = TileType.Blacked;

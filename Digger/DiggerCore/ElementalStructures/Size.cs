@@ -3,7 +3,7 @@
         public readonly int Depth;
         public readonly int Width;
 
-        public Size(int depth, int width) {
+        public Size(int width, int depth) {
             Depth = depth;
             Width = width;
         }

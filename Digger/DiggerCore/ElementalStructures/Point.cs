@@ -6,7 +6,7 @@ namespace DiggerCore.ElementalStructures {
         public readonly int Depth;
         public readonly int Width;
 
-        public Point(int depth, int width) {
+        public Point(int width, int depth) {
             Depth = depth;
             Width = width;
         }
@@ -37,7 +37,7 @@ namespace DiggerCore.ElementalStructures {
         }
 
         public static Point operator +(Point x, Point y) {
-            return new Point(x.Depth + y.Depth, x.Width + y.Width);
+            return new Point(x.Width + y.Width, x.Depth + y.Depth);
         }
     }
 }

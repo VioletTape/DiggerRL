@@ -22,15 +22,15 @@ namespace DiggerCore {
 
         public TileArray(Size size) {
             this.size = size;
-            array = new Tile[size.Depth, size.Width];
+            array = new Tile[size.Width, size.Depth];
             for (int d = 0; d < size.Depth; d++) {
                 for (int w = 0; w < size.Width; w++) {
-                    array[d,w] = new DirtTile();
+                    array[w,d] = new DirtTile();
                 }
             }
         }
 
-        private Size windowSize = new Size(0,0);
+        private Size windowSize = new Size(0, 0);
         private Point windowOffset = new Point();
         /// <summary>
         /// Set logical rendering window according to future user-centric position
@@ -38,7 +38,7 @@ namespace DiggerCore {
         /// <param name="offset">Describe offset from user in all directions</param>
         public void SetWindow(Point offset) {
             windowOffset = offset;
-            windowSize = new Size(offset.Depth+offset.Depth, offset.Width+offset.Width);
+            windowSize = new Size(offset.Width+offset.Width, offset.Depth+offset.Depth);
         }
 
         /// <summary>
@@ -56,10 +56,10 @@ namespace DiggerCore {
                          newW++, oldW++) {
                     if (oldD < 0
                         || oldW < 0) {
-                        tileArray[newD, newW] = new EmptyTile{IsDiscovered = false};
+                        tileArray[newW, newD] = new EmptyTile{IsDiscovered = false};
                     }
                     else {
-                        tileArray[newD, newW] = this[oldD, oldW];
+                        tileArray[newW, newD] = this[oldW, oldD];
                     }
                 }
             }

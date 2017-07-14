@@ -6,10 +6,10 @@ using DiggerCoreTests.TestExtensions;
 using NUnit.Framework;
 
 namespace DiggerCoreTests.Utils {
-    [TestFixture]
+    [TestFixture(TestOf = typeof(BlockBuilder))]
     public class BlockBuilderTests {
-        [Test]
-        public void testname() {
+        [Test(Description = "Should Build Some Default Walls")]
+        public void ShouldBuildSomeDefaultWalls() {
             var map = new Map(new Rule {
                                            MapSize = new Size(3, 3)
                                        });
@@ -21,6 +21,34 @@ namespace DiggerCoreTests.Utils {
                .CompareWith("X X\r\n" +
                             "X X\r\n" +
                             "XXX\r\n");
+        }
+
+        [Test]
+        public void ShouldBuildSurfaceForOneLevel() {
+            var map = new Map(new Rule {
+                                           MapSize = new Size(3, 1)
+                                       });
+
+            new BlockBuilder().BuildSurface(map);
+
+            map.WithRender()
+               .Render<SurfaceTile>('X')
+               .CompareWith(" X \r\n");
+        }
+
+        [Test]
+        public void ShouldBuildSurfaceForTwoLevels() {
+            var map = new Map(new Rule {
+                                           MapSize = new Size(4, 3)
+                                       });
+
+            new BlockBuilder().BuildSurface(map);
+
+            map.WithRender()
+               .Render<SurfaceTile>('X')
+               .CompareWith(" XX \r\n" +
+                            " XX \r\n" +
+                            "    \r\n");
         }
     }
 }

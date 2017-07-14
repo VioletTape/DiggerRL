@@ -4,7 +4,6 @@ using FluentAssertions;
 using NUnit.Framework;
 
 namespace DiggerCoreTests.GameTests {
-
     [TestFixture(TestOf = typeof(Game))]
     public class GameInitializationTests {
         private Game game;
@@ -22,10 +21,9 @@ namespace DiggerCoreTests.GameTests {
 
         [Test]
         public void ShouldSetDiggerPosition() {
-//            game.Digger
+            //            game.Digger
 
             Assert.Fail();
         }
-
     }
 }

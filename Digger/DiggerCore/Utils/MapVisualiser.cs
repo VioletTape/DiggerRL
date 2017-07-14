@@ -21,9 +21,9 @@ namespace DiggerCore.Utils {
         public string Print() {
             var sb = new StringBuilder();
             var tm = map.TileMap;
-            for (var w = 0; w < tm.Width; w++) {
-                for (var d = 0; d < tm.Depth; d++) {
-                    var type = tm[d, w].GetType();
+            for (var dp = 0; dp < tm.Depth; dp++) {
+                for (var w = 0; w < tm.Width; w++) {
+                    var type = tm[w, dp].GetType();
                     sb.Append(mapper.ContainsKey(type) ? mapper[type] : ' ');
                 }
                 sb.AppendLine();
