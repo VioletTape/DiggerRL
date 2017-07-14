@@ -27,12 +27,12 @@ namespace DiggerCoreTests.StructsTests {
         [Test]
         public void DestructableSettings() {
             var tile = new SurfaceTile();
-            tile.IsDestructale
+            tile.AllowEntrance()
                 .Should()
                 .BeTrue();
 
             var block = new BlockTile();
-            block.IsDestructale
+            block.AllowEntrance()
                  .Should()
                  .BeFalse();
         }

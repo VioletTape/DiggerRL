@@ -38,9 +38,16 @@ namespace DiggerCore {
         /// <param name="sender">Player object</param>
         /// <param name="moveDirectionCommand">Command with proposed direction</param>
         private void PlayerOnMoveCommand(object sender, MoveDirectionCommand moveDirectionCommand) {
+            if(!Map.GetCurrentTile().AllowMovementTo(moveDirectionCommand.Direction))
+                return;
+
             var activeTile = Map.GetTileNextTo(moveDirectionCommand);
 
-            Digger.Move(new MoveCommand(moveDirectionCommand.Direction, activeTile));
+            if (activeTile.AllowEntrance()) {
+                var moveCommand = new MoveCommand(moveDirectionCommand.Direction, activeTile);
+                Digger.Move(moveCommand);
+                Map.Move(moveCommand);
+            }
         }
     }
 }

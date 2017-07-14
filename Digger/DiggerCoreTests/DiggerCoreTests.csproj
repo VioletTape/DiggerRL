@@ -56,13 +56,15 @@
     <Compile Include="DiggerTests\DiggerDefaultTests.cs" />
     <Compile Include="DiggerTests\WhenDiggerMoves\StaminaTests.cs" />
     <Compile Include="GameTests\GameInitializationTests.cs" />
+    <Compile Include="GameTests\MovementTests\OnSurface.cs" />
     <Compile Include="GameTests\PlayerCommandTests.cs" />
-    <Compile Include="GameTests\PlayerMovementTest.cs" />
     <Compile Include="TestDisplay.cs" />
     <Compile Include="MapTests\MapTest.cs" />
     <Compile Include="TestData\TestRule10Cell.cs" />
+    <Compile Include="TestExtensions\GameExtension.cs" />
     <Compile Include="TestExtensions\MapExtension.cs" />
     <Compile Include="TestExtensions\MapVisualiserExtension.cs" />
+    <Compile Include="TestExtensions\PointExtension.cs" />
     <Compile Include="TileArrayTests\TestTile.cs" />
     <Compile Include="TileArrayTests\TileArrayTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

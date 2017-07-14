@@ -18,12 +18,5 @@ namespace DiggerCoreTests.GameTests {
             game.Player.Should()
                 .NotBeNull();
         }
-
-        [Test]
-        public void ShouldSetDiggerPosition() {
-            //            game.Digger
-
-            Assert.Fail();
-        }
     }
 }

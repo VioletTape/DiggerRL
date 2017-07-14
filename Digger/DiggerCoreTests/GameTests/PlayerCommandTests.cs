@@ -2,6 +2,7 @@
 using DiggerCore;
 using DiggerCore.Commands;
 using DiggerCoreTests.TestData;
+using DiggerCoreTests.TileArrayTests;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -10,16 +11,23 @@ namespace DiggerCoreTests.GameTests {
     public class PlayerCommandTests {
         private Game game;
 
-        [SetUp]
-        public void Init() {
-            game = new Game(Rules.TenCells);
-        }
-
         public static IEnumerable<MoveDirectionCommand> Directions() {
             yield return DirectionCommand.Down;
             yield return DirectionCommand.Up;
             yield return DirectionCommand.Left;
             yield return DirectionCommand.Right;
+        }
+
+        [SetUp]
+        public void Init() {
+            var map = new Map(Rules.TenCells);
+            var size = map.Rule.MapSize;
+            for (var d = 0; d < size.Depth; d++){
+                for (var w = 0; w < size.Width; w++) {
+                    map.TileMap[w, d] = new TestTile(TileType.Dirt);
+                }
+            }
+            game = new Game(map);
         }
 
         [Test]

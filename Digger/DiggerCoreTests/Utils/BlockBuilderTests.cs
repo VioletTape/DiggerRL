@@ -14,7 +14,7 @@ namespace DiggerCoreTests.Utils {
                                            MapSize = new Size(3, 3)
                                        });
 
-            new BlockBuilder().BuildWalls(map);
+            new BlockBuilder(map).BuildWalls();
 
             map.WithRender()
                .Render<BlockTile>('X')
@@ -29,7 +29,7 @@ namespace DiggerCoreTests.Utils {
                                            MapSize = new Size(3, 1)
                                        });
 
-            new BlockBuilder().BuildSurface(map);
+            new BlockBuilder(map).BuildSurface();
 
             map.WithRender()
                .Render<SurfaceTile>('X')
@@ -42,7 +42,7 @@ namespace DiggerCoreTests.Utils {
                                            MapSize = new Size(4, 3)
                                        });
 
-            new BlockBuilder().BuildSurface(map);
+            new BlockBuilder(map).BuildSurface();
 
             map.WithRender()
                .Render<SurfaceTile>('X')

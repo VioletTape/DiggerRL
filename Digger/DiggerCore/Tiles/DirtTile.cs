@@ -1,16 +1,16 @@
+using DiggerCore.Commands;
+
 namespace DiggerCore.Tiles {
     public class DirtTile : Tile {
         public DirtTile() : base(TileType.Dirt) { }
 
         public override int StaminaPrice => 4;
-    }
+        public override bool AllowMovementTo(Direction direction) {
+            throw new System.NotImplementedException();
+        }
 
-    public class BlockTile : Tile
-    {
-        public BlockTile() : base(TileType.Block) { }
-
-        public override int StaminaPrice => 0;
-
-        public override bool IsDestructale => false;
+        public override bool AllowEntrance() {
+            throw new System.NotImplementedException();
+        }
     }
 }

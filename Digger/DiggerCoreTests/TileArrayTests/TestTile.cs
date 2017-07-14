@@ -1,4 +1,5 @@
 ﻿using DiggerCore;
+using DiggerCore.Commands;
 using DiggerCore.Tiles;
 
 namespace DiggerCoreTests.TileArrayTests {
@@ -7,5 +8,12 @@ namespace DiggerCoreTests.TileArrayTests {
             StaminaPrice = staminaPrice;
         }
         public override int StaminaPrice { get; }
+        public override bool AllowMovementTo(Direction direction) {
+            return true;
+        }
+
+        public override bool AllowEntrance() {
+            return true;
+        }
     }
 }

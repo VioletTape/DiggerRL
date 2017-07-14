@@ -6,5 +6,6 @@ namespace DiggerCoreTests.TestExtensions {
         public static MapVisualiser WithRender(this Map map) {
             return new MapVisualiser(map);
         }
+
     }
 }

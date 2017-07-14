@@ -6,7 +6,7 @@ namespace DiggerCoreTests.TestData {
 
         public TestRule10Cell() {
             MapSize = new Size(10, 10);
-            DiggerPosition = new Point(2, 2);
+            DiggerPosition = new Point(3, 1);
         }
     }
 

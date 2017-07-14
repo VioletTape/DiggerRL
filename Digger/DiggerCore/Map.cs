@@ -19,12 +19,12 @@ namespace DiggerCore {
 
         public readonly Rule Rule;
         public readonly TileArray TileMap;
-        private readonly Point diggerPosition;
+        public Point DiggerPosition;
 
         public Map(Rule rule) {
             Rule = rule;
             TileMap = new TileArray(rule.MapSize);
-            diggerPosition = rule.DiggerPosition;
+            DiggerPosition = rule.DiggerPosition;
         }
 
         public void GenerateMountain() {
@@ -38,12 +38,20 @@ namespace DiggerCore {
                                                 };
         }
 
+        public Tile GetCurrentTile() {
+            return TileMap[DiggerPosition];
+        }
+
         public Tile GetTileNextTo(MoveDirectionCommand moveDirectionCommand) {
-            return TileMap[diggerPosition + GetPoint(moveDirectionCommand)];
+            return TileMap[DiggerPosition + GetPoint(moveDirectionCommand)];
         }
 
         private static Point GetPoint(MoveDirectionCommand directionCommand) {
             return Points[(int) directionCommand.Direction];
+        }
+
+        public void Move(MoveCommand moveCommand) {
+            DiggerPosition += Points[(int) moveCommand.Direction];
         }
     }
 }
