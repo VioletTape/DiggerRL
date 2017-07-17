@@ -28,5 +28,9 @@ namespace DiggerCore {
             Stamina -= Weapon.Weight;
             return Weapon.Power;
         }
+
+        public override string ToString() {
+            return $"Stamina: {Stamina}";
+        }
     }
 }
