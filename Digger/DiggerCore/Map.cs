@@ -27,17 +27,6 @@ namespace DiggerCore {
             DiggerPosition = rule.DiggerPosition;
         }
 
-        public void GenerateMountain() {
-            for (var i = 0; i < TileMap.Width - 4; i++)
-                TileMap[0, i] = new SurfaceTile {
-                                                    IsDiscovered = true
-                                                };
-            for (var i = 0; i < TileMap.Width - 8; i++)
-                TileMap[1, i] = new SurfaceTile {
-                                                    IsDiscovered = true
-                                                };
-        }
-
         public Tile GetCurrentTile() {
             return TileMap[DiggerPosition];
         }
@@ -50,7 +39,7 @@ namespace DiggerCore {
             return Points[(int) directionCommand.Direction];
         }
 
-        public void Move(MoveCommand moveCommand) {
+        public void MoveDigger(MoveCommand moveCommand) {
             DiggerPosition += Points[(int) moveCommand.Direction];
         }
     }

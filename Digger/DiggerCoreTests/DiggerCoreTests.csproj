@@ -59,7 +59,6 @@
     <Compile Include="GameTests\MovementTests\OnSurface.cs" />
     <Compile Include="GameTests\PlayerCommandTests.cs" />
     <Compile Include="TestDisplay.cs" />
-    <Compile Include="MapTests\MapTest.cs" />
     <Compile Include="TestData\TestRule10Cell.cs" />
     <Compile Include="TestExtensions\GameExtension.cs" />
     <Compile Include="TestExtensions\MapExtension.cs" />
@@ -81,6 +80,8 @@
       <Name>DiggerCore</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="MapTests\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
