@@ -58,6 +58,7 @@
     <Compile Include="GameTests\GameInitializationTests.cs" />
     <Compile Include="GameTests\MovementTests\OnSurface.cs" />
     <Compile Include="GameTests\PlayerCommandTests.cs" />
+    <Compile Include="GameTests\WhenDiggin.cs" />
     <Compile Include="TestDisplay.cs" />
     <Compile Include="TestData\TestRule10Cell.cs" />
     <Compile Include="TestExtensions\GameExtension.cs" />

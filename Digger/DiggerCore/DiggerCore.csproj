@@ -47,6 +47,10 @@
     <Compile Include="Commands\MoveDirectionCommand.cs" />
     <Compile Include="Digger.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="Items\CollectableItems\ICollectable.cs" />
+    <Compile Include="Items\IItem.cs" />
+    <Compile Include="Items\Tools\ITool.cs" />
+    <Compile Include="Items\Tools\Pickaxe.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="ElementalStructures\Point.cs" />

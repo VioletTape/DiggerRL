@@ -4,15 +4,18 @@ using DiggerCore.Commands;
 namespace DiggerCore.Tiles {
     public class BlockTile : Tile
     {
-        public BlockTile() : base(TileType.Block) { }
+        public BlockTile() : base(TileType.Block) {
+            
+        }
 
         public override int StaminaPrice => 0;
+        public override int Density { get; protected set; }
 
         public override bool AllowMovementTo(Direction direction) {
             throw new NotImplementedException("Player cant stand here");
         }
 
-        public override bool AllowEntrance() {
+        public override bool AllowEntrance(Digger digger) {
             return false;
         }
     }

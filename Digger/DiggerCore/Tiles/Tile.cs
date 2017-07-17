@@ -12,9 +12,10 @@ namespace DiggerCore.Tiles {
             Type = type;
         }
 
-        public abstract int StaminaPrice { get; }
+        public virtual int StaminaPrice => 1;
+        public abstract int Density { get; protected set; }
 
         public abstract bool AllowMovementTo(Direction direction);
-        public abstract bool AllowEntrance();
+        public abstract bool AllowEntrance(Digger digger);
     }
 }

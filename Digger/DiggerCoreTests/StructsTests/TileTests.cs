@@ -7,6 +7,13 @@ using NUnit.Framework;
 namespace DiggerCoreTests.StructsTests {
     [TestFixture]
     public class TileTests {
+        private Digger digger;
+
+        [SetUp]
+        public void Init() {
+            digger = new Digger();
+        }
+
         [Test]
         public void ShouldBeClosedByDefault() {
             var tile = new TestTile(TileType.Dirt);
@@ -27,12 +34,12 @@ namespace DiggerCoreTests.StructsTests {
         [Test]
         public void DestructableSettings() {
             var tile = new SurfaceTile();
-            tile.AllowEntrance()
+            tile.AllowEntrance(digger)
                 .Should()
                 .BeTrue();
 
             var block = new BlockTile();
-            block.AllowEntrance()
+            block.AllowEntrance(digger)
                  .Should()
                  .BeFalse();
         }

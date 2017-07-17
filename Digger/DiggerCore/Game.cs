@@ -37,7 +37,7 @@ namespace DiggerCore {
 
             var activeTile = Map.GetTileNextTo(moveDirectionCommand);
 
-            if (activeTile.AllowEntrance()) {
+            if (activeTile.AllowEntrance(Digger)) {
                 var moveCommand = new MoveCommand(moveDirectionCommand.Direction, activeTile);
                 Digger.Move(moveCommand);
                 Map.MoveDigger(moveCommand);
