@@ -14,9 +14,6 @@ namespace DiggerCore.Tiles {
 
         public abstract int StaminaPrice { get; }
 
-        [Obsolete("Move to AllowEntrance")]
-        public virtual bool IsDestructale => true;
-
         public abstract bool AllowMovementTo(Direction direction);
         public abstract bool AllowEntrance();
     }
