@@ -9,11 +9,11 @@ namespace DiggerCore.Tiles {
         public override int Density { get; protected set; } = 0;
 
         public override bool AllowMovementTo(Direction direction) {
-            throw new System.NotImplementedException();
+            return true;
         }
 
         public override bool AllowEntrance(Digger digger) {
-            throw new System.NotImplementedException();
+            return true;
         }
     }
 }

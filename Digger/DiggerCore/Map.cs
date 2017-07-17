@@ -41,6 +41,10 @@ namespace DiggerCore {
 
         public void MoveDigger(MoveCommand moveCommand) {
             DiggerPosition += Points[(int) moveCommand.Direction];
+
+            if (TileMap[DiggerPosition].Type != TileType.Empty) {
+                TileMap[DiggerPosition] = new EmptyTile();
+            }
         }
     }
 }
