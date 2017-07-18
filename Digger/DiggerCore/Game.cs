@@ -52,6 +52,9 @@ namespace DiggerCore {
                 var moveCommand = new MoveCommand(moveDirectionCommand.Direction, activeTile);
                 Digger.Move(moveCommand);
                 Map.MoveDigger(moveCommand);
+                
+                Map.GetCurrentTile().Item.Visit(Digger);
+
                 log.Information("{actor} {movement} on {tileCoordinate}. Stamina left {stamina}, gold {gold}", 
                     "Digger", "move", Map.DiggerPosition, Digger.Stamina, Digger.Gold);
             }

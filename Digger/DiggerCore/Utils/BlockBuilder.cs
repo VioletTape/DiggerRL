@@ -1,4 +1,5 @@
-﻿using DiggerCore.Tiles;
+﻿using DiggerCore.Items.SurfaceItems;
+using DiggerCore.Tiles;
 
 namespace DiggerCore.Utils {
     /// <summary>
@@ -51,6 +52,16 @@ namespace DiggerCore.Utils {
             for (var i = width - 2; width - i < bottomLevel; i--)
                 map.TileMap[i, 1] = new DirtTile();
 
+            return this;
+        }
+
+        public BlockBuilder BuildCamp() {
+            map.TileMap[4,1].SetItem(new Camp());
+            return this;
+        }
+
+        public BlockBuilder BuildStore() {
+            map.TileMap[1,2].SetItem(new Store());
             return this;
         }
     }

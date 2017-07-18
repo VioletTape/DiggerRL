@@ -9,7 +9,9 @@ namespace DiggerCore {
     public class Digger {
         private readonly ILogger log = Log.ForContext<Digger>();
         private static string actor = "Digger";
-        public int Stamina { get; set; }
+
+        public int MaxStamina;
+        public int Stamina;
         public int Gold;
 
         public ITool Weapon;
@@ -19,7 +21,7 @@ namespace DiggerCore {
         public readonly Dictionary<Type, int> Bag = new Dictionary<Type, int>();
 
         public Digger() {
-            Stamina = 100;
+            Stamina = MaxStamina = 100;
             Weapon = new Pickaxe();
             log.Verbose("{actor} created {@weapon}, stamina left {stamina}", actor, Weapon, Stamina);
             log.Information("{actor} {digger} created", "Digger", this);

@@ -2,21 +2,24 @@
 using System.Collections.Generic;
 using System.Text;
 using DiggerCore.ElementalStructures;
+using DiggerCore.Items;
 using DiggerCore.Tiles;
 
 namespace DiggerCore.Utils {
     public class MapVisualiser {
         private readonly Map map;
-        private readonly Dictionary<Type, char> mapper;
+        private readonly Dictionary<Type, char> tileMap;
+        private readonly Dictionary<Type, char> itemMap;
         private bool isDiggerOnMap;
 
         public MapVisualiser(Map map) {
             this.map = map;
-            mapper = new Dictionary<Type, char>();
+            tileMap = new Dictionary<Type, char>();
+            itemMap = new Dictionary<Type, char>();
         }
 
         public MapVisualiser Render<T>(char displayElement) where T : Tile {
-            mapper.Add(typeof(T), displayElement);
+            tileMap.Add(typeof(T), displayElement);
             return this;
         }
 
@@ -34,12 +37,25 @@ namespace DiggerCore.Utils {
                         sb.Append('&');
                         continue;
                     }
+
+                    var itemType = tm[w, dp].Item.GetType();
+                    if (itemMap.ContainsKey(itemType)) {
+                        sb.Append(itemMap[itemType]);
+                        continue;
+                    } 
+
                     var type = tm[w, dp].GetType();
-                    sb.Append(mapper.ContainsKey(type) ? mapper[type] : ' ');
+                    sb.Append(tileMap.ContainsKey(type) ? tileMap[type] : ' ');
                 }
                 sb.AppendLine();
             }
             return sb.ToString();
+        }
+
+        public MapVisualiser RenderItem<T>(char displayElement) where T : IItem {
+            itemMap.Add(typeof(T), displayElement);
+
+            return this;
         }
     }
 }

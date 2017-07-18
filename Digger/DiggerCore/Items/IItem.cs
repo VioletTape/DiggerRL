@@ -1,3 +1,5 @@
 ﻿namespace DiggerCore.Items {
-    public interface IItem { }
+    public interface IItem {
+        void Visit(Digger digger);
+    }
 }

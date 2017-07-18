@@ -89,8 +89,12 @@
     <Compile Include="Commands\MoveDirectionCommand.cs" />
     <Compile Include="Digger.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="Items\CollectableItems\Coal.cs" />
     <Compile Include="Items\CollectableItems\ICollectable.cs" />
     <Compile Include="Items\IItem.cs" />
+    <Compile Include="Items\NullItem.cs" />
+    <Compile Include="Items\SurfaceItems\Camp.cs" />
+    <Compile Include="Items\SurfaceItems\Store.cs" />
     <Compile Include="Items\Tools\ITool.cs" />
     <Compile Include="Items\Tools\Pickaxe.cs" />
     <Compile Include="Map.cs" />
