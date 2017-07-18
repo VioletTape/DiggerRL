@@ -2,9 +2,12 @@
 using DiggerCore.Commands;
 using DiggerCore.ElementalStructures;
 using DiggerCore.Tiles;
+using Serilog;
 
 namespace DiggerCore {
     public class Map {
+        private readonly ILogger log = Log.ForContext<Map>();
+
         private static readonly Point Left = new Point(-1, 0);
         private static readonly Point Right = new Point(1, 0);
         private static readonly Point Up = new Point(0, -1);
@@ -27,25 +30,53 @@ namespace DiggerCore {
             DiggerPosition = rule.DiggerPosition;
         }
 
+        public bool AllowMovementTo(MoveDirectionCommand command) {
+            var resolution = GetCurrentTile().AllowMovementTo(command.Direction);
+            log.Verbose("{actor} {movement} from {tileCoordinate}", "Digger", resolution ? "ready to move" : "stay", DiggerPosition);
+            return resolution;
+        }
+
         public Tile GetCurrentTile() {
             return TileMap[DiggerPosition];
         }
 
-        public Tile GetTileNextTo(MoveDirectionCommand moveDirectionCommand) {
+        public Tile GetTileNextTo(Direction moveDirectionCommand) {
             return TileMap[DiggerPosition + GetPoint(moveDirectionCommand)];
         }
 
-        private static Point GetPoint(MoveDirectionCommand directionCommand) {
-            return Points[(int) directionCommand.Direction];
+        private static Point GetPoint(Direction direction) {
+            return Points[(int) direction];
         }
 
-        public void MoveDigger(MoveCommand moveCommand) {
-            DiggerPosition += Points[(int) moveCommand.Direction];
+        private void MoveDigger(Direction moveTo) {
+            DiggerPosition += Points[(int) moveTo];
 
 
             if (TileMap[DiggerPosition].Type == TileType.Dirt) {
                 TileMap[DiggerPosition] = new EmptyTile();
             }
+        }
+
+      
+        public void Move(DiggerMoves command) {
+            var tile = GetTileNextTo(command.Direction);
+            log.Verbose("Next possible active tile is {tile}", tile);
+
+            var allowEntrance = tile.AllowEntrance(command.Digger);
+            log.Verbose("{actor} {movement} on {tileCoordinate}", "Digger", 
+                allowEntrance ? "allowed to move" : "stay", 
+                allowEntrance ? DiggerPosition + Points[(int) command.Direction] : DiggerPosition);
+
+            if(!allowEntrance)
+                return;
+
+            MoveDigger(command.Direction);
+            command.Digger.Move(tile);
+
+            tile.Item.Visit(command.Digger);
+
+            log.Information("{actor} {movement} on {tileCoordinate}. Stamina left {stamina}, gold {gold}", "Digger", "move", DiggerPosition, command.Digger.Stamina, command.Digger.Gold);
+            
         }
     }
 }

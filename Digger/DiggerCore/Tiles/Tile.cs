@@ -4,7 +4,7 @@ using DiggerCore.Items;
 
 namespace DiggerCore.Tiles {
     public abstract class Tile {
-        public IItem Item { get; private set; } 
+        public IItem Item { get; private set; }
 
         public TileType Type;
 
@@ -28,7 +28,7 @@ namespace DiggerCore.Tiles {
 
         public override string ToString() {
             return "{\"Type\":\"" + Type + "\", \"Density\":" + Density + "}";
-//            return "{\"Type\":\"" + Type + "\", \"StaminaPrice\":" + StaminaPrice + ", \"Density\":" + Density + "}";
+            //            return "{\"Type\":\"" + Type + "\", \"StaminaPrice\":" + StaminaPrice + ", \"Density\":" + Density + "}";
         }
     }
 }

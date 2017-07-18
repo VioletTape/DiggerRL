@@ -15,7 +15,7 @@ namespace DiggerCore.Tiles {
         }
 
         public override bool AllowEntrance(Digger digger) {
-            if(Density<=0)
+            if (Density <= 0)
                 return true;
 
             Density -= digger.UseWeapon();

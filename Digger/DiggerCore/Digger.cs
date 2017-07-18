@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DiggerCore.Commands;
 using DiggerCore.Items;
 using DiggerCore.Items.Tools;
+using DiggerCore.Tiles;
 using Serilog;
 
 namespace DiggerCore {
@@ -27,15 +28,15 @@ namespace DiggerCore {
             log.Information("{actor} {digger} created", "Digger", this);
         }
 
-        public void Move(MoveCommand move) {
-            Stamina -= move.ActiveTile.StaminaPrice;
-            log.Verbose("Stamina reduced on {staminaPrice}", move.ActiveTile.StaminaPrice);
-            log.Verbose("{actor} moves {diggerMoveDirection}, stamina left {stamina}",actor, move.Direction, Stamina);
+        public void Move(Tile tile) {
+            Stamina -= tile.StaminaPrice;
+            log.Verbose("Stamina reduced on {staminaPrice}", tile.StaminaPrice);
+            log.Verbose("{actor} moved, stamina left {stamina}", actor, Stamina);
         }
 
         public int UseWeapon() {
             Stamina -= Weapon.Weight;
-            log.Verbose("{actor} use {@weapon}, stamina left {stamina}",actor, Weapon, Stamina);
+            log.Verbose("{actor} use {@weapon}, stamina left {stamina}", actor, Weapon, Stamina);
             return Weapon.Power;
         }
 

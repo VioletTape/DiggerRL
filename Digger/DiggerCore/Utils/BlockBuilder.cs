@@ -56,12 +56,12 @@ namespace DiggerCore.Utils {
         }
 
         public BlockBuilder BuildCamp() {
-            map.TileMap[4,1].SetItem(new Camp());
+            map.TileMap[4, 1].SetItem(new Camp());
             return this;
         }
 
         public BlockBuilder BuildStore() {
-            map.TileMap[1,2].SetItem(new Store());
+            map.TileMap[1, 2].SetItem(new Store());
             return this;
         }
     }

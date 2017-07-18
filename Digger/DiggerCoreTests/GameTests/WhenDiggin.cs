@@ -15,6 +15,8 @@ namespace DiggerCoreTests.GameTests {
 
         [SetUp]
         public void Init() {
+            game = new Game();
+
             map = new Map(Rules.TenCells);
 
             new BlockBuilder(map)
@@ -30,7 +32,7 @@ namespace DiggerCoreTests.GameTests {
 
             Console.WriteLine(mapVisualiser.Print());
 
-            game = new Game(map);
+            game.SetMap(map);
         }
 
         [Test]

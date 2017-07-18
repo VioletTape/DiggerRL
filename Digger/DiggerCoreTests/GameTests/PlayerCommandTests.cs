@@ -27,7 +27,8 @@ namespace DiggerCoreTests.GameTests {
                     map.TileMap[w, d] = new TestTile(TileType.Dirt);
                 }
             }
-            game = new Game(map);
+            game = new Game();
+            game.SetMap(map);
         }
 
         [Test]

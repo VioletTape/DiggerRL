@@ -17,6 +17,7 @@ namespace DiggerCoreTests.GameTests.SpecialItemTests {
 
         [SetUp]
         public void Init() {
+            game = new Game();
             map = new Map(Rules.TenCells);
 
             new BlockBuilder(map)
@@ -32,7 +33,7 @@ namespace DiggerCoreTests.GameTests.SpecialItemTests {
 
             Console.WriteLine(mapVisualiser.Print());
 
-            game = new Game(map);
+            game.SetMap(map);
         }
 
         [Test]
@@ -51,6 +52,11 @@ namespace DiggerCoreTests.GameTests.SpecialItemTests {
             game.Digger.Stamina
                 .Should()
                 .Be(game.Digger.MaxStamina);
+        }
+
+        [TearDown]
+        public void End() {
+            game.EndGame();
         }
     }
 }

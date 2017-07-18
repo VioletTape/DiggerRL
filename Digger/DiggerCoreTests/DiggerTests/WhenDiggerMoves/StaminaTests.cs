@@ -12,7 +12,7 @@ namespace DiggerCoreTests.DiggerTests.WhenDiggerMoves {
             var digger = new Digger();
             var initialStamina = digger.Stamina;
 
-            digger.Move(new MoveCommand(Direction.Right, new EmptyTile()));
+            digger.Move(new EmptyTile());
 
             digger.Stamina
                   .Should()

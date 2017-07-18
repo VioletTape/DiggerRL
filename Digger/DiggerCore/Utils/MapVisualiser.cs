@@ -18,7 +18,8 @@ namespace DiggerCore.Utils {
             itemMap = new Dictionary<Type, char>();
         }
 
-        public MapVisualiser Render<T>(char displayElement) where T : Tile {
+        public MapVisualiser Render<T>(char displayElement)
+            where T : Tile {
             tileMap.Add(typeof(T), displayElement);
             return this;
         }
@@ -42,7 +43,7 @@ namespace DiggerCore.Utils {
                     if (itemMap.ContainsKey(itemType)) {
                         sb.Append(itemMap[itemType]);
                         continue;
-                    } 
+                    }
 
                     var type = tm[w, dp].GetType();
                     sb.Append(tileMap.ContainsKey(type) ? tileMap[type] : ' ');
@@ -52,7 +53,8 @@ namespace DiggerCore.Utils {
             return sb.ToString();
         }
 
-        public MapVisualiser RenderItem<T>(char displayElement) where T : IItem {
+        public MapVisualiser RenderItem<T>(char displayElement)
+            where T : IItem {
             itemMap.Add(typeof(T), displayElement);
 
             return this;

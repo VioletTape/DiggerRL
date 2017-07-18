@@ -11,8 +11,7 @@ namespace DiggerCore {
             set => array[width, depth] = value;
         }
 
-        public Tile this[Point point]
-        {
+        public Tile this[Point point] {
             get => array[point.Width, point.Depth];
             set => array[point.Width, point.Depth] = value;
         }
@@ -25,20 +24,21 @@ namespace DiggerCore {
             array = new Tile[size.Width, size.Depth];
             for (int d = 0; d < size.Depth; d++) {
                 for (int w = 0; w < size.Width; w++) {
-                    array[w,d] = new DirtTile();
+                    array[w, d] = new DirtTile();
                 }
             }
         }
 
         private Size windowSize = new Size(0, 0);
         private Point windowOffset = new Point();
+
         /// <summary>
         /// Set logical rendering window according to future user-centric position
         /// </summary>
         /// <param name="offset">Describe offset from user in all directions</param>
         public void SetWindow(Point offset) {
             windowOffset = offset;
-            windowSize = new Size(offset.Width+offset.Width, offset.Depth+offset.Depth);
+            windowSize = new Size(offset.Width + offset.Width, offset.Depth + offset.Depth);
         }
 
         /// <summary>
@@ -48,15 +48,13 @@ namespace DiggerCore {
         /// <returns></returns>
         public TileArray GetWindow(Point center) {
             var tileArray = new TileArray(windowSize);
-            for (int newD = 0, oldD = center.Depth-windowOffset.Depth; 
-                     newD < windowSize.Depth;
-                     newD++, oldD++) {
-                for (int newW = 0, oldW = center.Width - windowOffset.Width; 
-                         newW < windowSize.Width; 
-                         newW++, oldW++) {
+            for (int newD = 0, oldD = center.Depth - windowOffset.Depth; newD < windowSize.Depth; newD++, oldD++) {
+                for (int newW = 0, oldW = center.Width - windowOffset.Width; newW < windowSize.Width; newW++, oldW++) {
                     if (oldD < 0
                         || oldW < 0) {
-                        tileArray[newW, newD] = new EmptyTile{IsDiscovered = false};
+                        tileArray[newW, newD] = new EmptyTile {
+                                                                  IsDiscovered = false
+                                                              };
                     }
                     else {
                         tileArray[newW, newD] = this[oldW, oldD];
