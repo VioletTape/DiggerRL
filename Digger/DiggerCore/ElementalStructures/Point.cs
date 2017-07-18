@@ -39,5 +39,9 @@ namespace DiggerCore.ElementalStructures {
         public static Point operator +(Point x, Point y) {
             return new Point(x.Width + y.Width, x.Depth + y.Depth);
         }
+
+        public override string ToString() {
+            return "{\"width\": " + Width + ", \"depth\": " + Depth + "}";
+        }
     }
 }

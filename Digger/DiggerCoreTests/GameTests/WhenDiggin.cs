@@ -35,45 +35,33 @@ namespace DiggerCoreTests.GameTests {
 
         [Test]
         public void ItShouldDig() {
-            Console.WriteLine(game.Digger);
-
             game.SendDiggerRight();
-            Console.WriteLine(game.Digger);
-
             game.SendDiggerRight();
-            Console.WriteLine(game.Digger);
 
             Console.WriteLine(mapVisualiser.Print());
-            Console.WriteLine(game.Digger);
 
             game.SendDiggerRight();
             Console.WriteLine(mapVisualiser.Print());
-            Console.WriteLine(game.Digger);
-
-            
-            game.SendDiggerRight();
-            Console.WriteLine(mapVisualiser.Print());
-            Console.WriteLine(game.Digger);
 
             game.SendDiggerRight();
             Console.WriteLine(mapVisualiser.Print());
-            Console.WriteLine(game.Digger);
+
+            game.SendDiggerRight();
+            Console.WriteLine(mapVisualiser.Print());
 
             game.SendDiggerDown();
             Console.WriteLine(mapVisualiser.Print());
-            Console.WriteLine(game.Digger);
 
             game.SendDiggerDown();
             Console.WriteLine(mapVisualiser.Print());
-            Console.WriteLine(game.Digger);
 
             game.SendDiggerDown();
             Console.WriteLine(mapVisualiser.Print());
-            Console.WriteLine(game.Digger);
 
             game.SendDiggerDown();
             Console.WriteLine(mapVisualiser.Print());
-            Console.WriteLine(game.Digger);
+
+            game.EndGame();
         }
     }
 }

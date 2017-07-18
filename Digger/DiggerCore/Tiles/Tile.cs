@@ -17,5 +17,10 @@ namespace DiggerCore.Tiles {
 
         public abstract bool AllowMovementTo(Direction direction);
         public abstract bool AllowEntrance(Digger digger);
+
+        public override string ToString() {
+            return "{\"Type\":\"" + Type + "\", \"Density\":" + Density + "}";
+//            return "{\"Type\":\"" + Type + "\", \"StaminaPrice\":" + StaminaPrice + ", \"Density\":" + Density + "}";
+        }
     }
 }

@@ -1,12 +1,15 @@
 ﻿namespace DiggerCore.Items.Tools {
     public class Pickaxe : ITool {
         public string Name { get; }
-        public int Value { get;  }
-        public int Power { get;  }
+
+        public int Value { get; }
+
+        public int Power { get; }
+
         /// <summary>
-        /// Influence on Stamina. 
+        ///     Influence on Stamina.
         /// </summary>
-        public int Weight { get;  }
+        public int Weight { get; }
 
         public Pickaxe() {
             Name = "Rusty pickaxe";
@@ -14,6 +17,7 @@
             Power = 5;
             Weight = 3;
         }
-    }
 
+
+    }
 }
