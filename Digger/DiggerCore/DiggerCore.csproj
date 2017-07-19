@@ -88,10 +88,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\CheckEntryPossibility.cs" />
+    <Compile Include="Commands\CommandHubService.cs" />
     <Compile Include="Commands\Direction.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\MoveDirectionCommand.cs" />
     <Compile Include="Commands\MoveTo.cs" />
+    <Compile Include="Commands\SaveGameCommand.cs" />
     <Compile Include="Digger.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Items\CollectableItems\Coal.cs" />
@@ -109,6 +111,7 @@
     <Compile Include="ElementalStructures\Range.cs" />
     <Compile Include="Rule.cs" />
     <Compile Include="ElementalStructures\Size.cs" />
+    <Compile Include="Services\CampService.cs" />
     <Compile Include="Tiles\BlockTile.cs" />
     <Compile Include="Tiles\DirtTile.cs" />
     <Compile Include="Tiles\EmptyTile.cs" />

@@ -99,6 +99,7 @@
     <Compile Include="GameTests\PlayerCommandTests.cs" />
     <Compile Include="GameTests\SpecialItemTests\CampTests.cs" />
     <Compile Include="GameTests\WhenDiggin.cs" />
+    <Compile Include="ServiceTests\CommandHubServiceTests.cs" />
     <Compile Include="TestData\TestRule10Cell.cs" />
     <Compile Include="TestExtensions\GameExtension.cs" />
     <Compile Include="TestExtensions\MapExtension.cs" />

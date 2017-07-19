@@ -10,7 +10,7 @@ namespace DiggerCore.Tiles {
         public override int StaminaPrice => 0;
         public override int Density { get; protected set; }
 
-        public override bool AllowMovementTo(Direction direction) {
+        public override bool AllowMovementFrom(Direction direction) {
             var exception = new NotImplementedException("Digger cant stand here");
             log.Error(exception, "{actor} can stand here", "Digger");
             throw exception;

@@ -31,7 +31,7 @@ namespace DiggerCore {
         }
 
         public bool AllowMovementFrom(MoveDirectionCommand command) {
-            var resolution = GetCurrentTile().AllowMovementTo(command.Direction);
+            var resolution = GetCurrentTile().MoveFromInto(command.Direction);
             log.Verbose("{actor} {movement} from {tileCoordinate}", "Digger", resolution ? "ready to move" : "stay", DiggerPosition);
             return resolution;
         }
@@ -52,7 +52,7 @@ namespace DiggerCore {
             var tile = GetTileNextTo(command.Direction);
             log.Verbose("Next possible active tile is {tile}", tile);
 
-            var allowEntrance = tile.AllowEntrance(command.Digger);
+            var allowEntrance = tile.CanVisit(command.Digger);
             log.Verbose("{actor} {movement} on {tileCoordinate}", "Digger", 
                 allowEntrance ? "allowed to move" : "stay", 
                 allowEntrance ? DiggerPosition + Points[(int) command.Direction] : DiggerPosition);
@@ -62,9 +62,7 @@ namespace DiggerCore {
 
             // todo: rethink what to do with diggers actions
             MoveDigger(command.Direction);
-            command.Digger.Move(tile);
-
-            tile.Item.Visit(command.Digger);
+            tile.Visit(command.Digger);
 
             log.Information("{actor} {movement} on {tileCoordinate}. Stamina left {stamina}, gold {gold}", "Digger", "move", DiggerPosition, command.Digger.Stamina, command.Digger.Gold);
         }

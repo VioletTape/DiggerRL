@@ -1,4 +1,5 @@
-﻿using DiggerCore.Items.SurfaceItems;
+﻿using DiggerCore.Commands;
+using DiggerCore.Items.SurfaceItems;
 using DiggerCore.Tiles;
 
 namespace DiggerCore.Utils {
@@ -55,13 +56,15 @@ namespace DiggerCore.Utils {
             return this;
         }
 
-        public BlockBuilder BuildCamp() {
-            map.TileMap[4, 1].SetItem(new Camp());
+        public BlockBuilder BuildCamp(CommandHubService hub = null) {
+            hub = hub ?? new CommandHubService();
+            map.TileMap[4, 1].SetItem(new Camp(hub));
             return this;
         }
 
-        public BlockBuilder BuildStore() {
-            map.TileMap[1, 2].SetItem(new Store());
+        public BlockBuilder BuildStore(CommandHubService hub = null) {
+            hub = hub ?? new CommandHubService();
+            map.TileMap[1, 2].SetItem(new Store(hub));
             return this;
         }
     }

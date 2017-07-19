@@ -1,9 +1,11 @@
 ﻿using System;
 using DiggerCore.Commands;
 using DiggerCore.Items;
+using Serilog;
 
 namespace DiggerCore.Tiles {
     public abstract class Tile {
+        private ILogger log = Log.ForContext<Tile>();
         public IItem Item { get; private set; }
 
         public TileType Type;
@@ -19,7 +21,24 @@ namespace DiggerCore.Tiles {
         public virtual int StaminaPrice => 1;
         public abstract int Density { get; protected set; }
 
-        public abstract bool AllowMovementTo(Direction direction);
+        public bool MoveFromInto(Direction direction) {
+            Item.LeftOver();
+            return AllowMovementFrom(direction);
+        }
+
+        public bool CanVisit(Digger digger) {
+            var res = AllowEntrance(digger);
+            return res;
+        }
+
+        public void Visit(Digger digger) {
+            digger.Stamina -= StaminaPrice;
+            log.Verbose("Stamina reduced on {staminaPrice}", StaminaPrice);
+            log.Verbose("{actor} moved, stamina left {stamina}", "Digger", digger.Stamina);
+            Item.Visit(digger);
+        }
+
+        public abstract bool AllowMovementFrom(Direction direction);
         public abstract bool AllowEntrance(Digger digger);
 
         public void SetItem(IItem item) {

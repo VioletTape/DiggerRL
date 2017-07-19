@@ -10,7 +10,7 @@ namespace DiggerCoreTests.TileArrayTests {
         public override int StaminaPrice { get; }
         public override int Density { get; protected set; } = 0;
 
-        public override bool AllowMovementTo(Direction direction) {
+        public override bool AllowMovementFrom(Direction direction) {
             return true;
         }
 

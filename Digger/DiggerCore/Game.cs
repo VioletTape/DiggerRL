@@ -1,4 +1,5 @@
 ﻿using DiggerCore.Commands;
+using DiggerCore.Services;
 using Serilog;
 using Serilog.Core;
 using Serilog.Events;
@@ -9,12 +10,22 @@ namespace DiggerCore {
         public Player Player;
         public Digger Digger;
         private ILogger log;
+        public readonly CommandHubService Hub;
 
         public Game() {
             SetupLog();
             log.Information("New game started");
 
             CreatePlayer();
+
+            Hub = new CommandHubService();
+            var campService = new CampService();
+            Hub.Subscribe<DiggerInCamp>(campService.Handle);
+            Hub.Subscribe<DiggerLeftCamp>(campService.Handle);
+
+            var storeService = new StoreService();
+            Hub.Subscribe<DiggerInStore>(storeService.Handle);
+            Hub.Subscribe<DiggerLeftStore>(storeService.Handle);
         }
 
         public Game(Rule rule) : this() {

@@ -7,7 +7,7 @@ namespace DiggerCore.Tiles {
         public override int StaminaPrice => 2;
         public override int Density { get; protected set; } = 0;
 
-        public override bool AllowMovementTo(Direction direction) {
+        public override bool AllowMovementFrom(Direction direction) {
             return true;
         }
 

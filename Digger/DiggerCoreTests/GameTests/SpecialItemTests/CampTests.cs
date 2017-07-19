@@ -22,7 +22,7 @@ namespace DiggerCoreTests.GameTests.SpecialItemTests {
 
             new BlockBuilder(map)
                     .BuildSurface()
-                    .BuildCamp();
+                    .BuildCamp(game.Hub);
 
 
             mapVisualiser = map.WithRender()
