@@ -30,17 +30,17 @@ namespace DiggerCore {
             DiggerPosition = rule.DiggerPosition;
         }
 
-        public bool AllowMovementTo(MoveDirectionCommand command) {
+        public bool AllowMovementFrom(MoveDirectionCommand command) {
             var resolution = GetCurrentTile().AllowMovementTo(command.Direction);
             log.Verbose("{actor} {movement} from {tileCoordinate}", "Digger", resolution ? "ready to move" : "stay", DiggerPosition);
             return resolution;
         }
 
-        public Tile GetCurrentTile() {
+        private Tile GetCurrentTile() {
             return TileMap[DiggerPosition];
         }
 
-        public Tile GetTileNextTo(Direction moveDirectionCommand) {
+        private Tile GetTileNextTo(Direction moveDirectionCommand) {
             return TileMap[DiggerPosition + GetPoint(moveDirectionCommand)];
         }
 
@@ -48,16 +48,6 @@ namespace DiggerCore {
             return Points[(int) direction];
         }
 
-        private void MoveDigger(Direction moveTo) {
-            DiggerPosition += Points[(int) moveTo];
-
-
-            if (TileMap[DiggerPosition].Type == TileType.Dirt) {
-                TileMap[DiggerPosition] = new EmptyTile();
-            }
-        }
-
-      
         public void Move(DiggerMoves command) {
             var tile = GetTileNextTo(command.Direction);
             log.Verbose("Next possible active tile is {tile}", tile);
@@ -70,13 +60,21 @@ namespace DiggerCore {
             if(!allowEntrance)
                 return;
 
+            // todo: rethink what to do with diggers actions
             MoveDigger(command.Direction);
             command.Digger.Move(tile);
 
             tile.Item.Visit(command.Digger);
 
             log.Information("{actor} {movement} on {tileCoordinate}. Stamina left {stamina}, gold {gold}", "Digger", "move", DiggerPosition, command.Digger.Stamina, command.Digger.Gold);
-            
+        }
+
+        private void MoveDigger(Direction moveTo) {
+            DiggerPosition += Points[(int) moveTo];
+
+            if (TileMap[DiggerPosition].Type == TileType.Dirt) {
+                TileMap[DiggerPosition] = new EmptyTile();
+            }
         }
     }
 }

@@ -38,7 +38,7 @@ namespace DiggerCore {
         /// <param name="sender">Player object</param>
         /// <param name="move">Command with proposed direction</param>
         private void PlayerOnMoveCommand(object sender, MoveDirectionCommand move) {
-            if (!Map.AllowMovementTo(move)) {
+            if (!Map.AllowMovementFrom(move)) {
                 return;
             }
 
