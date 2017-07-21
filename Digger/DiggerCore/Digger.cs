@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using DiggerCore.Commands;
 using DiggerCore.Items;
+using DiggerCore.Items.CollectableItems;
 using DiggerCore.Items.Tools;
 using DiggerCore.Tiles;
 using Serilog;
@@ -19,7 +20,7 @@ namespace DiggerCore {
         public ITool Flare;
 
         public readonly Dictionary<Type, int> Items = new Dictionary<Type, int>();
-        public readonly Dictionary<Type, int> Bag = new Dictionary<Type, int>();
+        public readonly List<ICollectable> Bag = new List<ICollectable>();
 
         public Digger() {
             Stamina = MaxStamina = 100;

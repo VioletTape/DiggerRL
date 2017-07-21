@@ -15,6 +15,7 @@ namespace DiggerCore.Items.SurfaceItems {
         public void Visit(Digger digger) {
             log.Verbose("{actor} visit {item} with {stamina}", "Digger", "Camp", digger.Stamina);
             digger.Stamina = digger.MaxStamina;
+
             service.Handle(new DiggerInCamp());
         }
 

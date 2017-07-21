@@ -112,6 +112,7 @@
     <Compile Include="Rule.cs" />
     <Compile Include="ElementalStructures\Size.cs" />
     <Compile Include="Services\CampService.cs" />
+    <Compile Include="Services\StoreService.cs" />
     <Compile Include="Tiles\BlockTile.cs" />
     <Compile Include="Tiles\DirtTile.cs" />
     <Compile Include="Tiles\EmptyTile.cs" />
