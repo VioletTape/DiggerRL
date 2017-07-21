@@ -95,6 +95,7 @@
     <Compile Include="DiggerTests\DiggerDefaultTests.cs" />
     <Compile Include="DiggerTests\WhenAddGems.cs" />
     <Compile Include="DiggerTests\WhenDiggerMoves\StaminaTests.cs" />
+    <Compile Include="GameTests\DiggerVisitsStore.cs" />
     <Compile Include="GameTests\GameInitializationTests.cs" />
     <Compile Include="GameTests\MovementTests\OnSurface.cs" />
     <Compile Include="GameTests\PlayerCommandTests.cs" />

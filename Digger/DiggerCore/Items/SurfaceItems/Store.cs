@@ -13,11 +13,11 @@ namespace DiggerCore.Items.SurfaceItems {
         public void Visit(Digger digger) {
             log.Verbose("{actor} visit {item} with {stamina}", "Digger", "Store", digger.Stamina);
 
-            service.Handle(new DiggerInStore(digger));
+            service.Send(new DiggerInStore(digger));
         }
         public void LeftOver() {
             log.Verbose("{actor} left {item}", "Digger", "Store");
-            service.Handle(new DiggerLeftStore());
+            service.Send(new DiggerLeftStore());
             
         }
     }

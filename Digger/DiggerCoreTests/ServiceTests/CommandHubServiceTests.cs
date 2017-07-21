@@ -12,7 +12,7 @@ namespace DiggerCoreTests.ServiceTests {
 
             // act 
             service.Subscribe<Something>(dumbService.Do);
-            service.Handle(new Something());
+            service.Send(new Something());
 
             dumbService.Done
                        .Should()

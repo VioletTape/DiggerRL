@@ -9,7 +9,7 @@ namespace DiggerCore.Commands {
             comms = new Dictionary<Type, Action<ICommand>>();
         }
 
-        public void Handle<T>(T command) where  T : ICommand{
+        public void Send<T>(T command) where  T : ICommand{
             comms[typeof(T)].Invoke(command);
         }
 

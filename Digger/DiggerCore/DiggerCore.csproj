@@ -103,6 +103,7 @@
     <Compile Include="Items\CollectableItems\NullGem.cs" />
     <Compile Include="Items\IBuilding.cs" />
     <Compile Include="Items\IITem.cs" />
+    <Compile Include="Items\Ladder.cs" />
     <Compile Include="Items\NullBuilding.cs" />
     <Compile Include="Items\SurfaceItems\Camp.cs" />
     <Compile Include="Items\SurfaceItems\Store.cs" />

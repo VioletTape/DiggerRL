@@ -16,12 +16,12 @@ namespace DiggerCore.Items.SurfaceItems {
             log.Verbose("{actor} visit {item} with {stamina}", "Digger", "Camp", digger.Stamina);
             digger.Stamina = digger.MaxStamina;
 
-            service.Handle(new DiggerInCamp());
+            service.Send(new DiggerInCamp());
         }
 
         public void LeftOver() {
             log.Verbose("{actor} left {item}", "Digger", "Camp");
-            service.Handle(new DiggerLeftCamp());
+            service.Send(new DiggerLeftCamp());
         }
     }
 }

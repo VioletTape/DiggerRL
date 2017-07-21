@@ -1,4 +1,6 @@
-﻿using DiggerCore.Commands;
+﻿using System.Collections.Generic;
+using System.Linq;
+using DiggerCore.Commands;
 using DiggerCore.Services;
 using Serilog;
 using Serilog.Core;
@@ -6,30 +8,44 @@ using Serilog.Events;
 
 namespace DiggerCore {
     public class Game {
+        private List<IService> services = new List<IService>();
+        
         public Map Map;
         public Player Player;
         public Digger Digger;
         private ILogger log;
         public readonly CommandHubService Hub;
 
+
         public Game() {
             SetupLog();
             log.Information("New game started");
 
-            CreatePlayer();
+            
 
             Hub = new CommandHubService();
             var campService = new CampService();
             Hub.Subscribe<DiggerInCamp>(campService.Handle);
             Hub.Subscribe<DiggerLeftCamp>(campService.Handle);
+            services.Add(campService);
 
             var storeService = new StoreService();
             Hub.Subscribe<DiggerInStore>(storeService.Handle);
             Hub.Subscribe<DiggerLeftStore>(storeService.Handle);
+            Hub.Subscribe<PlayerOpenStore>(storeService.Handle);
+            Hub.Subscribe<PlayerBuyItem>(storeService.Handle);
+            services.Add(storeService);
+
+            CreatePlayer();
         }
 
         public Game(Rule rule) : this() {
             Map = new Map(rule);
+        }
+
+        public T Get<T>()
+            where T : IService {
+            return services.OfType<T>().SingleOrDefault();
         }
 
         public void SetMap(Map map) {
@@ -37,7 +53,7 @@ namespace DiggerCore {
         }
 
         private void CreatePlayer() {
-            Player = new Player();
+            Player = new Player(Hub);
             Digger = new Digger();
 
             Player.MoveCommand += PlayerOnMoveCommand;

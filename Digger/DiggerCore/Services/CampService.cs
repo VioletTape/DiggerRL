@@ -3,7 +3,7 @@ using DiggerCore.Commands;
 using Serilog;
 
 namespace DiggerCore.Services {
-    public class CampService {
+    public class CampService : IService{
         private ILogger log = Log.ForContext<CampService>();
         private bool enableService;
 
