@@ -9,9 +9,9 @@ namespace DiggerCoreTests.ServiceTests.StoreTests {
     [TestFixture]
     public class WhenSellingGems {
         [Test]
-        public void testname() {
+        public void GoldShouldBeSummedFromBag() {
             var digger = new Digger();
-            digger.Bag.Add(new Coal());
+            digger.Add(new Coal());
 
             var service = new StoreService();
             service.Handle(new DiggerInStore(digger));

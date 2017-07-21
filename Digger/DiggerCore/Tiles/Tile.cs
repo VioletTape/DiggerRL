@@ -1,12 +1,13 @@
-﻿using System;
-using DiggerCore.Commands;
+﻿using DiggerCore.Commands;
 using DiggerCore.Items;
+using DiggerCore.Items.CollectableItems;
 using Serilog;
 
 namespace DiggerCore.Tiles {
     public abstract class Tile {
-        private ILogger log = Log.ForContext<Tile>();
+        private readonly ILogger log = Log.ForContext<Tile>();
         public IItem Item { get; private set; }
+        public ICollectable Gem = GemFactory.Null;
 
         public TileType Type;
 
@@ -36,6 +37,8 @@ namespace DiggerCore.Tiles {
             log.Verbose("Stamina reduced on {staminaPrice}", StaminaPrice);
             log.Verbose("{actor} moved, stamina left {stamina}", "Digger", digger.Stamina);
             Item.Visit(digger);
+
+            digger.Add(Gem);
         }
 
         public abstract bool AllowMovementFrom(Direction direction);

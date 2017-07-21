@@ -1,4 +1,6 @@
 ﻿using DiggerCore.Commands;
+using DiggerCore.ElementalStructures;
+using DiggerCore.Items.CollectableItems;
 using DiggerCore.Items.SurfaceItems;
 using DiggerCore.Tiles;
 
@@ -64,7 +66,12 @@ namespace DiggerCore.Utils {
 
         public BlockBuilder BuildStore(CommandHubService hub = null) {
             hub = hub ?? new CommandHubService();
-            map.TileMap[1, 2].SetItem(new Store(hub));
+            map.TileMap[2, 1].SetItem(new Store(hub));
+            return this;
+        }
+
+        public BlockBuilder WithGem(Point point, ICollectable gem) {
+            map.TileMap[point].Gem = gem;
             return this;
         }
     }

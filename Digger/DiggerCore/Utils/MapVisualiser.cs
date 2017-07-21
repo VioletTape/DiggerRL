@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using DiggerCore.ElementalStructures;
 using DiggerCore.Items;
+using DiggerCore.Items.CollectableItems;
 using DiggerCore.Tiles;
 
 namespace DiggerCore.Utils {
@@ -39,6 +40,12 @@ namespace DiggerCore.Utils {
                         continue;
                     }
 
+                    var gemType = tm[w, dp].Gem.GetType();
+                    if (itemMap.ContainsKey(gemType)) {
+                        sb.Append(itemMap[gemType]);
+                        continue;
+                    }
+
                     var itemType = tm[w, dp].Item.GetType();
                     if (itemMap.ContainsKey(itemType)) {
                         sb.Append(itemMap[itemType]);
@@ -57,6 +64,12 @@ namespace DiggerCore.Utils {
             where T : IItem {
             itemMap.Add(typeof(T), displayElement);
 
+            return this;
+        }
+
+        public MapVisualiser RenderGem<T>(char displayElement)
+            where T : ICollectable {
+            itemMap.Add(typeof(T), displayElement);
             return this;
         }
     }

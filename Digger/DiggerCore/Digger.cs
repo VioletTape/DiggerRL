@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using DiggerCore.Commands;
 using DiggerCore.Items;
 using DiggerCore.Items.CollectableItems;
@@ -20,7 +22,10 @@ namespace DiggerCore {
         public ITool Flare;
 
         public readonly Dictionary<Type, int> Items = new Dictionary<Type, int>();
-        public readonly List<ICollectable> Bag = new List<ICollectable>();
+
+        public ReadOnlyCollection<ICollectable> Bag => bag.AsReadOnly();
+
+        private List<ICollectable> bag = new List<ICollectable>(15);
 
         public Digger() {
             Stamina = MaxStamina = 100;
@@ -43,6 +48,20 @@ namespace DiggerCore {
 
         public override string ToString() {
             return $"Stamina: {Stamina}, Gold: {Gold}";
+        }
+
+        public int SellAllGems() {
+           var sum = bag.Sum(i => i.Value);
+           bag.Clear();
+           return sum;
+        }
+
+        public void Add(ICollectable gem) {
+            if(gem.GetType() == typeof(NullGem))
+                return;
+
+            bag.Add(gem);
+            log.Information("{actor} add {gem} in bag({bagItems})", "Digger", gem.GetType().Name, Bag.Count);
         }
     }
 }

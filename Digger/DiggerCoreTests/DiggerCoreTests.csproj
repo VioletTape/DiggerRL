@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DiggerTests\DiggerDefaultTests.cs" />
+    <Compile Include="DiggerTests\WhenAddGems.cs" />
     <Compile Include="DiggerTests\WhenDiggerMoves\StaminaTests.cs" />
     <Compile Include="GameTests\GameInitializationTests.cs" />
     <Compile Include="GameTests\MovementTests\OnSurface.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="GameTests\SpecialItemTests\CampTests.cs" />
     <Compile Include="GameTests\WhenDiggin.cs" />
     <Compile Include="ServiceTests\CommandHubServiceTests.cs" />
+    <Compile Include="GameTests\GetAndSellGems.cs" />
     <Compile Include="ServiceTests\StoreTests\WhenSellingGems.cs" />
     <Compile Include="TestData\TestRule10Cell.cs" />
     <Compile Include="TestExtensions\GameExtension.cs" />

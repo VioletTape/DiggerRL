@@ -3,6 +3,4 @@
         void Visit(Digger digger);
         void LeftOver();
     }
-
-    
 }
