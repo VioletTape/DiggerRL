@@ -11,14 +11,14 @@ namespace DiggerCoreTests.ServiceTests.StoreTests {
         [Test]
         public void GoldShouldBeSummedFromBag() {
             var digger = new Digger();
-            digger.Add(new Coal());
+            digger.GemBag.Add(new Coal());
 
             var service = new StoreService();
             service.Handle(new DiggerInStore(digger));
 
             digger.Gold.Should()
                   .Be(10);
-            digger.Bag.Should()
+            digger.GemBag.Gems.Should()
                 .BeEmpty();
         }
     }

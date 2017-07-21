@@ -1,5 +1,6 @@
 ﻿using DiggerCore;
 using DiggerCore.Items.CollectableItems;
+using DiggerCore.Items.Tools;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -10,9 +11,9 @@ namespace DiggerCoreTests.DiggerTests {
         public void ItShouldBePossible() {
             var digger = new Digger();
 
-            digger.Add(new Coal());
+            digger.GemBag.Add(new Coal());
 
-            digger.Bag.Count
+            digger.GemBag.Gems.Count
                   .Should()
                   .Be(1);
         }
@@ -21,9 +22,9 @@ namespace DiggerCoreTests.DiggerTests {
         public void CantAddNullGem() {
             var digger = new Digger();
 
-            digger.Add(new NullGem());
+            digger.GemBag.Add(new NullGem());
 
-            digger.Bag.Count
+            digger.GemBag.Gems.Count
                   .Should()
                   .Be(0);
         }
@@ -31,16 +32,19 @@ namespace DiggerCoreTests.DiggerTests {
         [Test]
         public void CantAddMoreThanBagCapacity() {
             var digger = new Digger();
+            digger.GemBag.Updgrade(new BagSettings {
+                                                       Capacity = 5
+                                                   });
+            
+            digger.GemBag.Add(new Coal());
+            digger.GemBag.Add(new Coal());
+            digger.GemBag.Add(new Coal());
+            digger.GemBag.Add(new Coal());
+            digger.GemBag.Add(new Coal());
 
-            digger.Add(new Coal());
-            digger.Add(new Coal());
-            digger.Add(new Coal());
-            digger.Add(new Coal());
-            digger.Add(new Coal());
+            digger.GemBag.Add(new Coal());
 
-            digger.Add(new Coal());
-
-            digger.Bag.Count
+            digger.GemBag.Gems.Count
                   .Should()
                   .Be(5);
         }

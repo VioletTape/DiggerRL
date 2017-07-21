@@ -4,7 +4,7 @@ using DiggerCore.Services;
 using Serilog;
 
 namespace DiggerCore.Items.SurfaceItems {
-    public class Camp : IItem {
+    public class Camp : IBuilding {
         private readonly CommandHubService service;
         private ILogger log = Log.ForContext<Camp>();
 

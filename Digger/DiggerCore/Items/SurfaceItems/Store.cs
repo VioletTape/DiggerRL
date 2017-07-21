@@ -2,7 +2,7 @@
 using Serilog;
 
 namespace DiggerCore.Items.SurfaceItems {
-    public class Store : IItem {
+    public class Store : IBuilding {
         private readonly CommandHubService service;
         private ILogger log = Log.ForContext<Camp>();
 

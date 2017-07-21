@@ -6,7 +6,7 @@ using Serilog;
 namespace DiggerCore.Tiles {
     public abstract class Tile {
         private readonly ILogger log = Log.ForContext<Tile>();
-        public IItem Item { get; private set; }
+        public IBuilding Building { get; private set; }
         public ICollectable Gem = GemFactory.Null;
 
         public TileType Type;
@@ -16,14 +16,14 @@ namespace DiggerCore.Tiles {
 
         protected Tile(TileType type) {
             Type = type;
-            Item = new NullItem();
+            Building = new NullBuilding();
         }
 
         public virtual int StaminaPrice => 1;
         public abstract int Density { get; protected set; }
 
         public bool MoveFromInto(Direction direction) {
-            Item.LeftOver();
+            Building.LeftOver();
             return AllowMovementFrom(direction);
         }
 
@@ -36,16 +36,16 @@ namespace DiggerCore.Tiles {
             digger.Stamina -= StaminaPrice;
             log.Verbose("Stamina reduced on {staminaPrice}", StaminaPrice);
             log.Verbose("{actor} moved, stamina left {stamina}", "Digger", digger.Stamina);
-            Item.Visit(digger);
+            Building.Visit(digger);
 
-            digger.Add(Gem);
+            digger.GemBag.Add(Gem);
         }
 
         public abstract bool AllowMovementFrom(Direction direction);
         public abstract bool AllowEntrance(Digger digger);
 
-        public void SetItem(IItem item) {
-            Item = item;
+        public void SetItem(IBuilding building) {
+            Building = building;
         }
 
         public override string ToString() {

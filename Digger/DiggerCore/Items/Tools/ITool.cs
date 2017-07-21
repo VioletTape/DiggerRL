@@ -1,11 +1,7 @@
 ﻿namespace DiggerCore.Items.Tools {
     // non consumable
-    public interface ITool {
-        string Name { get; }
-        int Value { get; }
+    public interface ITool : IItem {
         int Power { get; }
         int Weight { get; }
     }
-
-    // consumable 
 }

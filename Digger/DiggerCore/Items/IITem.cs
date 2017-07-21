@@ -1,6 +1,7 @@
 ﻿namespace DiggerCore.Items {
     public interface IItem {
-        void Visit(Digger digger);
-        void LeftOver();
+        string Name { get; }
+        int Price { get;  }
+
     }
 }

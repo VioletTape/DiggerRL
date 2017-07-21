@@ -12,7 +12,8 @@ namespace DiggerCore.Services {
 
         public void Handle(DiggerInStore command) {
             var digger = command.Digger;
-            digger.Gold += digger.SellAllGems();
+            digger.Gold += digger.GemBag.Gems.Sum(i => i.Value);
+            digger.GemBag.Clear();
         }
 
         public void Handle(DiggerLeftStore command) {
@@ -20,4 +21,5 @@ namespace DiggerCore.Services {
         }
 
     }
+
 }

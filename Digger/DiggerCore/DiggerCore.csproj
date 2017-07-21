@@ -101,10 +101,15 @@
     <Compile Include="Items\CollectableItems\ICollectable.cs" />
     <Compile Include="Items\CollectableItems\IGemFactory.cs" />
     <Compile Include="Items\CollectableItems\NullGem.cs" />
-    <Compile Include="Items\IItem.cs" />
-    <Compile Include="Items\NullItem.cs" />
+    <Compile Include="Items\IBuilding.cs" />
+    <Compile Include="Items\IITem.cs" />
+    <Compile Include="Items\NullBuilding.cs" />
     <Compile Include="Items\SurfaceItems\Camp.cs" />
     <Compile Include="Items\SurfaceItems\Store.cs" />
+    <Compile Include="Items\Tools\BagSettings.cs" />
+    <Compile Include="Items\Tools\GemBag.cs" />
+    <Compile Include="Items\Tools\IFlare.cs" />
+    <Compile Include="Items\Tools\IGemBag.cs" />
     <Compile Include="Items\Tools\ITool.cs" />
     <Compile Include="Items\Tools\Pickaxe.cs" />
     <Compile Include="Map.cs" />

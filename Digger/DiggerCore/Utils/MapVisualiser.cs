@@ -46,7 +46,7 @@ namespace DiggerCore.Utils {
                         continue;
                     }
 
-                    var itemType = tm[w, dp].Item.GetType();
+                    var itemType = tm[w, dp].Building.GetType();
                     if (itemMap.ContainsKey(itemType)) {
                         sb.Append(itemMap[itemType]);
                         continue;
@@ -61,7 +61,7 @@ namespace DiggerCore.Utils {
         }
 
         public MapVisualiser RenderItem<T>(char displayElement)
-            where T : IItem {
+            where T : IBuilding {
             itemMap.Add(typeof(T), displayElement);
 
             return this;
