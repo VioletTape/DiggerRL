@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Linq;
 using DiggerCore.Commands;
 using DiggerCore.Items;
@@ -10,7 +9,7 @@ namespace DiggerCore.Services {
         private ILogger log = Log.ForContext<StoreService>();
         private List<IItem> goods;
 
-        internal Digger digger; 
+        internal Digger digger;
 
         public StoreService() {
             goods = new List<IItem> {
@@ -21,8 +20,7 @@ namespace DiggerCore.Services {
         }
 
         public void Handle(PlayerOpenStore command) {
-            if(digger == null)
-                return;
+            if (digger == null) { }
         }
 
         public void Handle(PlayerBuyItem command) {
@@ -45,7 +43,6 @@ namespace DiggerCore.Services {
         public void Handle(DiggerLeftStore command) {
             digger = null;
         }
-
     }
 
     public interface IService { }
