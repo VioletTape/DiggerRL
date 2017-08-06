@@ -44,6 +44,7 @@ namespace DiggerCoreTests.Utils {
 
             new BlockBuilder(map).BuildSurface();
 
+
             map.WithRender()
                .Render<SurfaceTile>('X')
                .CompareWith(" XX \r\n" +
