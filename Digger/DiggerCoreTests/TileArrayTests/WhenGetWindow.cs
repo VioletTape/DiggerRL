@@ -49,13 +49,6 @@ namespace DiggerCoreTests.TileArrayTests {
                     .Be(TileType.Empty);
         }
 
-        [Test]
-        public void ShouldProcessEndOfMap() {
-            var tileArray = new TileArray(new Size(50, 50));
-            tileArray.SetWindow(new Point(10, 5));
-
-            var window = tileArray.GetWindow(new Point(4, 4));
-            window[0, 0].Type = TileType.Blacked;
-        }
+      
     }
 }

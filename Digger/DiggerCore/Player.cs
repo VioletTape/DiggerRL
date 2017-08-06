@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Diagnostics;
 using DiggerCore.Commands;
 using DiggerCore.Items;
 using Serilog;
-using Serilog.Core;
 
 namespace DiggerCore {
     public class Player {
