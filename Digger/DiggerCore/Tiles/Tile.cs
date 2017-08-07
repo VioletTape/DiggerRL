@@ -6,6 +6,7 @@ using Serilog;
 namespace DiggerCore.Tiles {
     public abstract class Tile {
         private readonly ILogger log = Log.ForContext<Tile>();
+
         public IBuilding Building { get; private set; }
         public ICollectable Gem = GemFactory.Null;
 
@@ -20,6 +21,7 @@ namespace DiggerCore.Tiles {
         }
 
         public virtual int StaminaPrice => 1;
+
         public abstract int Density { get; protected set; }
 
         public bool MoveFromInto(Direction direction) {

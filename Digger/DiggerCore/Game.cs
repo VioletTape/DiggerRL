@@ -21,8 +21,6 @@ namespace DiggerCore {
             SetupLog();
             log.Information("New game started");
 
-            
-
             Hub = new CommandHubService();
             var campService = new CampService();
             Hub.Subscribe<DiggerInCamp>(campService.Handle);
