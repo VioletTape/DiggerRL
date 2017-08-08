@@ -19,7 +19,7 @@ namespace DiggerCore.Tiles {
                 return true;
             }
 
-            Density -= digger.UseWeapon();
+            Density -= digger.Attack();
 
             return false;
         }

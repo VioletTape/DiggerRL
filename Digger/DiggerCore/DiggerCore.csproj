@@ -114,6 +114,7 @@
     <Compile Include="Items\Tools\ITool.cs" />
     <Compile Include="Items\Tools\Pickaxe.cs" />
     <Compile Include="Map.cs" />
+    <Compile Include="MoveObject.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="ElementalStructures\Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

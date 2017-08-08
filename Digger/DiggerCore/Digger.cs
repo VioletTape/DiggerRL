@@ -5,7 +5,7 @@ using DiggerCore.Tiles;
 using Serilog;
 
 namespace DiggerCore {
-    public class Digger {
+    public class Digger : MoveObject {
         private readonly ILogger log = Log.ForContext<Digger>();
         private static readonly string actor = "Digger";
 
@@ -19,21 +19,25 @@ namespace DiggerCore {
 
         public readonly Dictionary<Type, int> Items = new Dictionary<Type, int>();
 
-        public Digger() {
+        public Digger() : base(actor) {
             Stamina = MaxStamina = 100;
             Tool = new Pickaxe();
-            log.Verbose("{actor} created {@weapon}, stamina left {stamina}", actor, Tool, Stamina);
-            log.Information("{actor} {digger} created", "Digger", this);
+
+            log.Verbose("{actor} created with {@weapon}, initial stamina {stamina}", actor, Tool, Stamina);
         }
 
-        public void Move(Tile tile) {
+        public override bool Move(Tile tile) {
             Stamina -= tile.StaminaPrice;
+
             log.Verbose("Stamina reduced on {staminaPrice}", tile.StaminaPrice);
             log.Verbose("{actor} moved, stamina left {stamina}", actor, Stamina);
+
+            return true;
         }
 
-        public int UseWeapon() {
+        public int Attack() {
             Stamina -= Tool.Weight;
+
             log.Verbose("{actor} use {@weapon}, stamina left {stamina}", actor, Tool, Stamina);
             return Tool.Power;
         }
