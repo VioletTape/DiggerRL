@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MovementManagerRL {
     public class ActorQueueManager {
@@ -15,29 +16,26 @@ namespace MovementManagerRL {
             actors = new List<ActorEnergy>();
         }
 
-        public void Register<T>(T actor)
-            where T : IActor {
+        public void Register<T>(T actor) where T : IActor {
             var actorSpeed = new ActorEnergy {
-                                                Actor = actor
-                                                , AccumulatedEnergy = 0
-                                            };
+                                                 Actor = actor
+                                                 , AccumulatedEnergy = 0
+                                             };
             actors.Add(actorSpeed);
             actorPriorityQueue.Add(actorSpeed);
         }
 
-        public void Remove<T>(T actor) {
-            
-        }
+        public void Remove<T>(T actor) { }
 
-        public void RemoveAll<T>() {
-            
-        }
+        public void RemoveAll<T>() { }
 
         public IActor PopNext() {
             var action = actorPriorityQueue.GetNext();
             if (action == null) {
-                Rebuild();
-                return PopNext();
+                if (Rebuild()) {
+                    return PopNext();
+                }
+                return null;
             }
 
             action.AccumulatedEnergy -= action.Actor.Speed;
@@ -45,10 +43,19 @@ namespace MovementManagerRL {
             return action.Actor;
         }
 
-        internal void Rebuild() {
+        internal bool Rebuild() {
             actors.ForEach(a => { a.AccumulatedEnergy += grantEnergy; });
             actorPriorityQueue.AddRange(actors);
             Turn++;
+            return actors.Any();
+        }
+
+        public void Add<T>(T actor) where T : IActor {
+            var actorSpeed = new ActorEnergy {
+                                                 Actor = actor
+                                                 , AccumulatedEnergy = actor.Speed
+                                             };
+            actorPriorityQueue.Add(actorSpeed);
         }
     }
 }
