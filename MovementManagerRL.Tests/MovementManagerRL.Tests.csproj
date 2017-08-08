@@ -49,7 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ActorQueueManagerGeneralTests.cs" />
+    <Compile Include="GameElement.cs" />
+    <Compile Include="WhenRegisterOneTimeActor.cs" />
+    <Compile Include="WhenRegisterPermanentActor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
